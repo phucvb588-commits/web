@@ -1,0 +1,238 @@
+{
+  "categories": [
+    {
+      "id": "new-products",
+      "name": "SẢN PHẨM MỚI 2026"
+    },
+    {
+      "id": "kids-bikes",
+      "name": "XE ĐẠP TRẺ EM"
+    },
+    {
+      "id": "sports-bikes",
+      "name": "XE ĐẠP THỂ THAO"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "categoryId": "sports-bikes",
+      "name": "Xe đạp địa hình MTB X100",
+      "price": 5200000,
+      "image": "https://images.unsplash.com/photo-1511994298241-608e28f14fde",
+      "sold": 120,
+      "features": [
+        "Xe đạp địa hình khung nhôm, 21 tốc độ"
+      ]
+    },
+    {
+      "id": "2",
+      "categoryId": "sports-bikes",
+      "name": "Xe đạp địa hình MTB Pro",
+      "price": 6100000,
+      "image": "https://images.unsplash.com/photo-1507035895480-2b3156c31fc8",
+      "sold": 90,
+      "features": [
+        "Xe đạp leo núi giảm xóc trước"
+      ]
+    },
+    {
+      "id": "3",
+      "categoryId": "sports-bikes",
+      "name": "Xe đạp đua Road Bike R200",
+      "price": 7800000,
+      "image": "https://images.unsplash.com/photo-1485965120184-e220f721d03e",
+      "sold": 65,
+      "features": [
+        "Xe đạp đua khung nhẹ tốc độ cao"
+      ]
+    },
+    {
+      "id": "4",
+      "categoryId": "new-products",
+      "name": "Xe đạp thành phố City Bike C1",
+      "price": 4200000,
+      "image": "images/citybike 1.webp",
+      "sold": 74,
+      "features": [
+        "Xe đạp đi phố nhẹ và tiện lợi"
+      ]
+    },
+    {
+      "id": "5",
+      "categoryId": "new-products",
+      "name": "Xe đạp gấp Folding Bike F1",
+      "price": 5500000,
+      "image": "images/Folding Bike F1.webp",
+      "sold": 50,
+      "features": [
+        "Xe đạp gấp gọn tiện mang theo"
+      ]
+    },
+    {
+      "id": "6",
+      "categoryId": "sports-bikes",
+      "name": "Xe đạp thể thao Speed S100",
+      "price": 6300000,
+      "image": "images/Speed S100.webp",
+      "sold": 112,
+      "features": [
+        "Thiết kế thể thao khung nhôm"
+      ]
+    },
+    {
+      "id": "7",
+      "categoryId": "sports-bikes",
+      "name": "Xe đạp touring T500",
+      "price": 8200000,
+      "image": "images/touring T500.webp",
+      "sold": 35,
+      "features": [
+        "Xe đạp du lịch đường dài"
+      ]
+    },
+    {
+      "id": "8",
+      "categoryId": "new-products",
+      "name": "Xe đạp Fixed Gear FG1",
+      "price": 4800000,
+      "image": "images/Fixed Gear FG1.webp",
+      "sold": 95,
+      "features": [
+        "Xe đạp fixed gear phong cách"
+      ]
+    },
+    {
+      "id": "9",
+      "categoryId": "sports-bikes",
+      "name": "Xe đạp địa hình MTB Trail",
+      "price": 6900000,
+      "image": "images/MTB Trail.webp",
+      "sold": 60,
+      "features": [
+        "Xe leo núi chuyên dụng"
+      ]
+    },
+    {
+      "id": "10",
+      "categoryId": "kids-bikes",
+      "name": "Xe đạp trẻ em Kid Bike K1",
+      "price": 2100000,
+      "image": "images/Kid Bike K1.webp",
+      "sold": 150,
+      "features": [
+        "Xe đạp cho trẻ em 6-10 tuổi"
+      ]
+    },
+    {
+      "id": "11",
+      "categoryId": "sports-bikes",
+      "name": "Xe đạp địa hình MTB Storm",
+      "price": 6400000,
+      "image": "https://images.unsplash.com/photo-1507035895480-2b3156c31fc8",
+      "sold": 82,
+      "features": [
+        "Khung thép bền bỉ"
+      ]
+    },
+    {
+      "id": "12",
+      "categoryId": "sports-bikes",
+      "name": "Xe đạp đường trường Road Pro",
+      "price": 9300000,
+      "image": "https://images.unsplash.com/photo-1485965120184-e220f721d03e",
+      "sold": 41,
+      "features": [
+        "Xe đạp đua cao cấp"
+      ]
+    },
+    {
+      "id": "13",
+      "categoryId": "new-products",
+      "name": "Xe đạp city Classic",
+      "price": 3900000,
+      "image": "images/city Classic.webp",
+      "sold": 67,
+      "features": [
+        "Phong cách cổ điển"
+      ]
+    },
+    {
+      "id": "14",
+      "categoryId": "sports-bikes",
+      "name": "Xe đạp touring Adventure",
+      "price": 8700000,
+      "image": "images/touring Adventure.webp",
+      "sold": 28,
+      "features": [
+        "Xe đi phượt đường dài"
+      ]
+    },
+    {
+      "id": "15",
+      "categoryId": "sports-bikes",
+      "name": "Xe đạp MTB Hunter",
+      "price": 5800000,
+      "image": "images/MTB Hunter.webp",
+      "sold": 76,
+      "features": [
+        "Giảm xóc mạnh mẽ"
+      ]
+    },
+    {
+      "id": "16",
+      "categoryId": "new-products",
+      "name": "Xe đạp Fixed Urban",
+      "price": 4500000,
+      "image": "images/Fixed Urban.webp",
+      "sold": 55,
+      "features": [
+        "Phong cách đường phố"
+      ]
+    },
+    {
+      "id": "17",
+      "categoryId": "new-products",
+      "name": "Xe đạp gấp Mini Fold",
+      "price": 5100000,
+      "image": "images/Mini Fold.webp",
+      "sold": 48,
+      "features": [
+        "Thiết kế nhỏ gọn"
+      ]
+    },
+    {
+      "id": "18",
+      "categoryId": "sports-bikes",
+      "name": "Xe đạp thể thao Power S200",
+      "price": 7000000,
+      "image": "images/Power S200.webp",
+      "sold": 59,
+      "features": [
+        "Xe thể thao tốc độ cao"
+      ]
+    },
+    {
+      "id": "19",
+      "categoryId": "kids-bikes",
+      "name": "Xe đạp trẻ em Kid Bike K2",
+      "price": 2400000,
+      "image": "images/Kid Bike K2.webp",
+      "sold": 132,
+      "features": [
+        "Xe trẻ em có bánh phụ"
+      ]
+    },
+    {
+      "id": "20",
+      "categoryId": "sports-bikes",
+      "name": "Xe đạp MTB Thunder",
+      "price": 6600000,
+      "image": "images/MTB Thunder.webp",
+      "sold": 70,
+      "features": [
+        "Xe leo núi khung hợp kim"
+      ]
+    }
+  ]
+}
