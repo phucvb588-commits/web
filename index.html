@@ -13,8 +13,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <!-- Font Parker tải qua thẻ link (tối ưu hơn @import css) -->
     <link href="https://fonts.cdnfonts.com/css/parker" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.cdnfonts.com/css/parker" rel="stylesheet"></noscript>
-    
+    <noscript>
+        <link href="https://fonts.cdnfonts.com/css/parker" rel="stylesheet">
+    </noscript>
+
     <link rel="stylesheet" href="style.css">
     <script>
         const savedTheme = localStorage.getItem('sdb_theme');
@@ -100,10 +102,11 @@
     <div class="hero-banner">
         <!-- Đổi ảnh nền CSS thành thẻ <img> để trình duyệt ưu tiên tải sớm (tối ưu LCP) -->
         <picture>
-            <source srcset="https://images.unsplash.com/photo-1511994298241-608e28f14fde?auto=format&fit=crop&q=80&w=1280" media="(max-width: 768px)">
-            <img src="https://images.unsplash.com/photo-1511994298241-608e28f14fde?auto=format&fit=crop&q=80&w=1920" 
-                 alt="Khuyến mãi mùa hè xe đạp chính hãng" 
-                 class="hero-bg-img" fetchpriority="high">
+            <source
+                srcset="https://images.unsplash.com/photo-1511994298241-608e28f14fde?auto=format&fit=crop&q=80&w=1280"
+                media="(max-width: 768px)">
+            <img src="https://images.unsplash.com/photo-1511994298241-608e28f14fde?auto=format&fit=crop&q=80&w=1920"
+                alt="Khuyến mãi mùa hè xe đạp chính hãng" class="hero-bg-img" fetchpriority="high">
         </picture>
         <div class="container hero-inner">
             <div class="hero-text">
@@ -220,13 +223,6 @@
             </div>
         </div>
 
-        <!-- COPYRIGHT BAR -->
-        <div class="footer-copy">
-            <div class="container">
-                <span>© 2026 SD'bike – Tất cả quyền được bảo lưu.</span>
-                <span>Thiết kế bởi <strong>SD'bike Team</strong></span>
-            </div>
-        </div>
     </footer>
 
     <!-- CART SIDEBAR -->
