@@ -233,6 +233,138 @@
       "features": [
         "Xe leo núi khung hợp kim"
       ]
+    },
+    {
+      "id": "21",
+      "categoryId": "new-products",
+      "name": "Xe đạp điện E-Bike 100",
+      "price": 12500000,
+      "image": "images/E-Bike 100.webp",
+      "sold": 15,
+      "features": [
+        "Thiết kế hiện đại, trợ lực điện"
+      ]
+    },
+    {
+      "id": "22",
+      "categoryId": "new-products",
+      "name": "Xe đạp đường phố Modern City",
+      "price": 5400000,
+      "image": "images/Modern City.webp",
+      "sold": 80,
+      "features": [
+        "Dành cho di chuyển đô thị"
+      ]
+    },
+    {
+      "id": "23",
+      "categoryId": "new-products",
+      "name": "Xe đạp trượt Scoot",
+      "price": 2300000,
+      "image": "images/Scoot.webp",
+      "sold": 45,
+      "features": [
+        "Gọn nhẹ, tiện đi lại gần"
+      ]
+    },
+    {
+      "id": "24",
+      "categoryId": "new-products",
+      "name": "Xe đạp nữ Vintage",
+      "price": 4900000,
+      "image": "images/Vintage.webp",
+      "sold": 90,
+      "features": [
+        "Phong cách nữ tính, giỏ trước"
+      ]
+    },
+    {
+      "id": "25",
+      "categoryId": "kids-bikes",
+      "name": "Xe đạp trẻ em Kid Bike K3",
+      "price": 2600000,
+      "image": "images/Kid Bike K3.webp",
+      "sold": 110,
+      "features": [
+        "Size 16 inch cho bé 5-8 tuổi"
+      ]
+    },
+    {
+      "id": "26",
+      "categoryId": "kids-bikes",
+      "name": "Xe đạp trẻ em Kid Bike K4",
+      "price": 2800000,
+      "image": "images/Kid Bike K4.webp",
+      "sold": 85,
+      "features": [
+        "Size 20 inch cá tính"
+      ]
+    },
+    {
+      "id": "27",
+      "categoryId": "kids-bikes",
+      "name": "Xe đạp trẻ em Sporty Mini",
+      "price": 3100000,
+      "image": "images/Sporty Mini.webp",
+      "sold": 60,
+      "features": [
+        "Kiểu dáng thể thao khỏe khoắn"
+      ]
+    },
+    {
+      "id": "28",
+      "categoryId": "kids-bikes",
+      "name": "Xe đạp trẻ em Princess",
+      "price": 2700000,
+      "image": "images/Princess.webp",
+      "sold": 140,
+      "features": [
+        "Dành cho bé gái, màu hồng"
+      ]
+    },
+    {
+      "id": "29",
+      "categoryId": "kids-bikes",
+      "name": "Xe đạp trẻ em Hero",
+      "price": 2900000,
+      "image": "images/Hero.webp",
+      "sold": 75,
+      "features": [
+        "Tem siêu anh hùng"
+      ]
+    },
+    {
+      "id": "30",
+      "categoryId": "kids-bikes",
+      "name": "Xe đạp trẻ em Balance Bike",
+      "price": 1200000,
+      "image": "images/Balance Bike.webp",
+      "sold": 200,
+      "features": [
+        "Xe thăng bằng cho bé 2-4 tuổi"
+      ]
+    },
+    {
+      "id": "31",
+      "categoryId": "kids-bikes",
+      "name": "Xe đạp trẻ em BMX Junior",
+      "price": 3500000,
+      "image": "images/BMX Junior.webp",
+      "sold": 40,
+      "features": [
+        "Thích hợp biểu diễn nhẹ"
+      ]
+    },
+    {
+      "id": "32",
+      "categoryId": "kids-bikes",
+      "name": "Xe đạp trẻ em Junior MTB",
+      "price": 3800000,
+      "image": "images/Junior MTB.webp",
+      "sold": 55,
+      "features": [
+        "Phuộc nhún trước, phanh đĩa"
+      ]
     }
   ]
 }
