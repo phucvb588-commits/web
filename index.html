@@ -10,17 +10,21 @@
 
     <meta name="theme-color" content="#cc0000">
     <link rel="icon" href="logo.png">
-    <!-- Icons: load trước (không defer) để tránh icon reflow gây CLS -->
+    
+    <!-- Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://images.unsplash.com">
-    <!-- Font Parker tải qua thẻ link (tối ưu hơn @import css) -->
+    <!-- Font Parker -->
     <link href="https://fonts.cdnfonts.com/css/parker" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript>
         <link href="https://fonts.cdnfonts.com/css/parker" rel="stylesheet">
     </noscript>
 
+    <!-- Language Translation Script -->
+    <script src="i18n.js"></script>
     <link rel="stylesheet" href="style.css">
+    
     <script>
         const savedTheme = localStorage.getItem('sdb_theme');
         if (savedTheme === 'dark') {
@@ -41,7 +45,7 @@
         </div>
         <div class="splash-glow" id="splashGlow"></div>
         <img src="logo.png" alt="SD'bike" class="splash-logo-full" id="splashLogoFull">
-        <p class="splash-tagline" id="splashTagline">SD'bike · Xe Đạp Chính Hãng · Giá Tốt Nhất</p>
+        <p class="splash-tagline" id="splashTagline" data-i18n="tagline">SD'bike · Xe Đạp Chính Hãng · Giá Tốt Nhất</p>
         <div class="splash-bar" id="splashBar">
             <div class="splash-bar-fill" id="splashBarFill"></div>
         </div>
@@ -51,10 +55,10 @@
     <div class="top-bar">
         <div class="container top-bar-inner">
             <div class="top-bar-left">
-                <span><i class="ph ph-phone"></i> Hotline: <strong>...</strong> (Miễn phí · 8h–21h)</span>
+                <span data-i18n="hotline"><i class="ph ph-phone"></i> Hotline: <strong>...</strong> (Miễn phí · 8h–21h)</span>
             </div>
             <div class="top-bar-right">
-                <span>🎁 Ưu đãi hè 2026 – Giảm đến 30%</span>
+                <span data-i18n="promo">🎁 Ưu đãi hè 2026 – Giảm đến 30%</span>
             </div>
         </div>
     </div>
@@ -69,18 +73,21 @@
             <div class="search-wrapper">
                 <div class="search-box">
                     <i class="ph ph-magnifying-glass"></i>
-                    <input type="text" id="searchInput" placeholder="Tìm kiếm xe đạp...">
+                    <input type="text" id="searchInput" placeholder="Tìm kiếm xe đạp..." data-i18n-ph="search_ph">
                 </div>
                 <div class="search-suggestions" id="searchSuggestions"></div>
             </div>
 
             <div class="header-actions">
+                <button id="langToggleBtn" class="btn-ghost" aria-label="Đổi ngôn ngữ">
+                    <span id="langIcon" style="font-weight: bold; font-family: sans-serif;">EN</span>
+                </button>
                 <button id="themeToggleBtn" class="btn-ghost" aria-label="Đổi giao diện">
                     <i class="ph ph-moon" id="themeIcon"></i>
                 </button>
                 <button id="loginBtnTrigger" class="btn-ghost">
                     <i class="ph ph-user"></i>
-                    <span id="loginLabel">Đăng nhập</span>
+                    <span id="loginLabel" data-i18n="login">Đăng nhập</span>
                 </button>
                 <button class="cart-btn" id="cartBtnHeader">
                     <i class="ph ph-shopping-cart"></i>
@@ -93,17 +100,16 @@
     <!-- CATEGORY NAV -->
     <nav class="category-nav">
         <div class="container">
-            <a href="#new-products" class="active"><i class="ph ph-star"></i> Sản Phẩm Mới</a>
-            <a href="#kids-bikes"><i class="ph ph-baby"></i> Xe Trẻ Em</a>
-            <a href="#sports-bikes"><i class="ph ph-lightning"></i> Xe Thể Thao</a>
-            <a href="#"><i class="ph ph-wrench"></i> Phụ Kiện</a>
-            <a href="#"><i class="ph ph-tag"></i> Khuyến Mãi</a>
+            <a href="#new-products" class="active" data-i18n="nav_new"><i class="ph ph-star"></i> Sản Phẩm Mới</a>
+            <a href="#kids-bikes" data-i18n="nav_kids"><i class="ph ph-baby"></i> Xe Trẻ Em</a>
+            <a href="#sports-bikes" data-i18n="nav_sport"><i class="ph ph-lightning"></i> Xe Thể Thao</a>
+            <a href="#" data-i18n="nav_acc"><i class="ph ph-wrench"></i> Phụ Kiện</a>
+            <a href="#" data-i18n="nav_sale"><i class="ph ph-tag"></i> Khuyến Mãi</a>
         </div>
     </nav>
 
     <!-- HERO BANNER -->
     <div class="hero-banner">
-        <!-- Đổi ảnh nền CSS thành thẻ <img> để trình duyệt ưu tiên tải sớm (tối ưu LCP) -->
         <picture>
             <source
                 srcset="https://images.unsplash.com/photo-1511994298241-608e28f14fde?auto=format&fit=crop&q=80&w=1280"
@@ -113,14 +119,13 @@
         </picture>
         <div class="container hero-inner">
             <div class="hero-text">
-                <div class="hero-badge">🚴 Sale hè 2026 – Ưu đãi lớn nhất năm</div>
-                <h1>Xe Đạp Chính Hãng<br><span class="hero-highlight">Giá Tốt Nhất</span></h1>
-                <p>Miễn phí giao hàng toàn quốc · Bảo hành 3 năm · Đổi lỗi 30 ngày</p>
+                <div class="hero-badge" data-i18n="hero_badge">🚴 Sale hè 2026 – Ưu đãi lớn nhất năm</div>
+                <h1 data-i18n="hero_h1">Xe Đạp Chính Hãng<br><span class="hero-highlight">Giá Tốt Nhất</span></h1>
+                <p data-i18n="hero_p">Miễn phí giao hàng toàn quốc · Bảo hành 3 năm · Đổi lỗi 30 ngày</p>
                 <div class="hero-actions">
-                    <a href="#new-products" class="btn-primary">🛒 Mua ngay</a>
-                    <a href="#" class="btn-hero-outline">Xem catalogue</a>
+                    <a href="#new-products" class="btn-primary" data-i18n="hero_btn1">🛒 Mua ngay</a>
+                    <a href="#" class="btn-hero-outline" data-i18n="hero_btn2">Xem catalogue</a>
                 </div>
-
             </div>
         </div>
     </div>
@@ -130,23 +135,23 @@
         <div class="container trust-strip-inner">
             <div class="trust-item">
                 <i class="ph-fill ph-truck"></i>
-                <div><strong>Miễn phí vận chuyển</strong><span>Đơn từ 500.000₫</span></div>
+                <div><strong data-i18n="trust_1_title">Miễn phí vận chuyển</strong><span data-i18n="trust_1_p">Đơn từ 500.000₫</span></div>
             </div>
             <div class="trust-item">
                 <i class="ph-fill ph-arrows-counter-clockwise"></i>
-                <div><strong>Đổi trả 30 ngày</strong><span>Hoàn tiền 100%</span></div>
+                <div><strong data-i18n="trust_2_title">Đổi trả 30 ngày</strong><span data-i18n="trust_2_p">Hoàn tiền 100%</span></div>
             </div>
             <div class="trust-item">
                 <i class="ph-fill ph-shield-check"></i>
-                <div><strong>Bảo hành 3 năm</strong><span>Chính hãng toàn quốc</span></div>
+                <div><strong data-i18n="trust_3_title">Bảo hành 3 năm</strong><span data-i18n="trust_3_p">Chính hãng toàn quốc</span></div>
             </div>
             <div class="trust-item">
                 <i class="ph-fill ph-headset"></i>
-                <div><strong>Hỗ trợ 24/7</strong><span>... miễn phí</span></div>
+                <div><strong data-i18n="trust_4_title">Hỗ trợ 24/7</strong><span data-i18n="trust_4_p">... miễn phí</span></div>
             </div>
             <div class="trust-item">
                 <i class="ph-fill ph-seal-check"></i>
-                <div><strong>Hàng chính hãng</strong><span>Cam kết 100%</span></div>
+                <div><strong data-i18n="trust_5_title">Hàng chính hãng</strong><span data-i18n="trust_5_p">Cam kết 100%</span></div>
             </div>
         </div>
     </div>
@@ -154,13 +159,12 @@
     <!-- MAIN CONTENT -->
     <main class="container main-content" id="main">
         <div id="product-catalog-container">
-            <div class="loading-state">
+            <div class="loading-state" data-i18n="loading">
                 <i class="ph ph-circle-notch"></i>
                 <p>Đang tải sản phẩm...</p>
             </div>
         </div>
     </main>
-
 
     <!-- FOOTER -->
     <footer class="footer">
@@ -169,7 +173,7 @@
                 <!-- CỘT 1: THƯƠNG HIỆU -->
                 <div class="footer-col footer-brand-col">
                     <img src="logo.png" alt="SD'bike" class="footer-logo" width="180" height="56" loading="lazy">
-                    <p class="footer-desc">Hệ thống bán lẻ xe đạp chính hãng toàn quốc. Chất lượng – Uy tín – Giá tốt
+                    <p class="footer-desc" data-i18n="f_desc">Hệ thống bán lẻ xe đạp chính hãng toàn quốc. Chất lượng – Uy tín – Giá tốt
                         nhất.</p>
                     <div class="footer-contact">
                         <div><i class="ph ph-phone"></i> <strong>...</strong> (Miễn phí)</div>
@@ -186,33 +190,33 @@
 
                 <!-- CỘT 2: SẢN PHẨM -->
                 <div class="footer-col">
-                    <h5>Danh Mục Sản Phẩm</h5>
+                    <h5 data-i18n="f_col2_title">Danh Mục Sản Phẩm</h5>
                     <ul>
-                        <li><a href="#">Xe đạp thể thao</a></li>
-                        <li><a href="#">Xe đạp trẻ em</a></li>
-                        <li><a href="#">Xe đạp địa hình MTB</a></li>
-                        <li><a href="#">Xe đạp đường phố</a></li>
-                        <li><a href="#">Xe đạp gấp</a></li>
-                        <li><a href="#">Phụ kiện xe đạp</a></li>
+                        <li><a href="#" data-i18n="fc2_1">Xe đạp thể thao</a></li>
+                        <li><a href="#" data-i18n="fc2_2">Xe đạp trẻ em</a></li>
+                        <li><a href="#" data-i18n="fc2_3">Xe đạp địa hình MTB</a></li>
+                        <li><a href="#" data-i18n="fc2_4">Xe đạp đường phố</a></li>
+                        <li><a href="#" data-i18n="fc2_5">Xe đạp gấp</a></li>
+                        <li><a href="#" data-i18n="fc2_6">Phụ kiện xe đạp</a></li>
                     </ul>
                 </div>
 
                 <!-- CỘT 3: HỖ TRỢ -->
                 <div class="footer-col">
-                    <h5>Hỗ Trợ Khách Hàng</h5>
+                    <h5 data-i18n="f_col3_title">Hỗ Trợ Khách Hàng</h5>
                     <ul>
-                        <li><a href="#">Hướng dẫn mua hàng</a></li>
-                        <li><a href="#">Hướng dẫn giao nhận</a></li>
-                        <li><a href="#">Chính sách đổi trả</a></li>
-                        <li><a href="#">Chính sách bảo hành</a></li>
-                        <li><a href="#">Chính sách vận chuyển</a></li>
-                        <li><a href="#">Tra cứu đơn hàng</a></li>
+                        <li><a href="#" data-i18n="fc3_1">Hướng dẫn mua hàng</a></li>
+                        <li><a href="#" data-i18n="fc3_2">Hướng dẫn giao nhận</a></li>
+                        <li><a href="#" data-i18n="fc3_3">Chính sách đổi trả</a></li>
+                        <li><a href="#" data-i18n="fc3_4">Chính sách bảo hành</a></li>
+                        <li><a href="#" data-i18n="fc3_5">Chính sách vận chuyển</a></li>
+                        <li><a href="#" data-i18n="fc3_6">Tra cứu đơn hàng</a></li>
                     </ul>
                 </div>
 
                 <!-- CỘT 4: THANH TOÁN -->
                 <div class="footer-col">
-                    <h5>Thanh Toán & Chứng Nhận</h5>
+                    <h5 data-i18n="f_col4_title">Thanh Toán & Chứng Nhận</h5>
                     <div class="footer-payments">
                         <div class="fpay-tag"><i class="ph-fill ph-credit-card"></i> Thẻ ATM</div>
                         <div class="fpay-tag"><i class="ph-fill ph-currency-circle-dollar"></i> Visa/MC</div>
@@ -221,27 +225,25 @@
                         <div class="fpay-tag"><i class="ph-fill ph-bank"></i> Chuyển khoản</div>
                         <div class="fpay-tag"><i class="ph-fill ph-apple-logo"></i> Apple Pay</div>
                     </div>
-
                 </div>
             </div>
         </div>
-
     </footer>
 
     <!-- CART SIDEBAR -->
     <div class="cart-overlay" id="cartOverlay">
         <div class="cart-sidebar">
             <div class="cart-header">
-                <h3>Giỏ Hàng (<span id="cartSidebarCount">0</span>)</h3>
+                <h3><span data-i18n="cart_title">Giỏ Hàng</span> (<span id="cartSidebarCount">0</span>)</h3>
                 <button id="cartCloseBtn"><i class="ph ph-x"></i></button>
             </div>
             <div class="cart-items" id="cartItemsContainer"></div>
             <div class="cart-footer">
                 <div class="cart-total">
-                    <span>Tổng tiền</span>
+                    <span data-i18n="cart_total">Tổng tiền</span>
                     <strong id="cartTotalPrice">0 ₫</strong>
                 </div>
-                <button class="btn-primary w-full" id="checkoutBtn">Thanh Toán</button>
+                <button class="btn-primary w-full" id="checkoutBtn" data-i18n="cart_checkout">Thanh Toán</button>
             </div>
         </div>
     </div>
@@ -250,20 +252,20 @@
     <div class="modal-overlay" id="authModal">
         <div class="modal-card">
             <button class="modal-close" id="authCloseBtn"><i class="ph ph-x"></i></button>
-            <h2 id="authTitle">Đăng Nhập</h2>
-            <p id="authSubtitle" class="auth-subtitle">Chào mừng bạn trở lại!</p>
+            <h2 id="authTitle" data-i18n="auth_title_login">Đăng Nhập</h2>
+            <p id="authSubtitle" class="auth-subtitle" data-i18n="auth_sub_login">Chào mừng bạn trở lại!</p>
             <div class="form-group">
-                <label>Tên đăng nhập</label>
-                <input type="text" id="authUsername" placeholder="Nhập tên đăng nhập">
+                <label data-i18n="auth_user">Tên đăng nhập</label>
+                <input type="text" id="authUsername" placeholder="Nhập tên đăng nhập" data-i18n-ph="auth_user_ph">
             </div>
             <div class="form-group">
-                <label>Mật khẩu</label>
-                <input type="password" id="authPassword" placeholder="Nhập mật khẩu">
+                <label data-i18n="auth_pass">Mật khẩu</label>
+                <input type="password" id="authPassword" placeholder="Nhập mật khẩu" data-i18n-ph="auth_pass_ph">
             </div>
-            <button id="authSubmitBtn" class="btn-primary w-full">ĐĂNG NHẬP</button>
+            <button id="authSubmitBtn" class="btn-primary w-full" data-i18n="auth_btn_login">ĐĂNG NHẬP</button>
             <p class="auth-toggle">
-                <span id="authToggleText">Chưa có tài khoản?</span>
-                <a href="#" id="authToggleLink">Đăng ký ngay</a>
+                <span id="authToggleText" data-i18n="auth_text_login">Chưa có tài khoản?</span>
+                <a href="#" id="authToggleLink" data-i18n="auth_link_login">Đăng ký ngay</a>
             </p>
         </div>
     </div>
@@ -282,13 +284,13 @@
     </button>
     <div class="chat-widget" id="chatWidget">
         <div class="chat-header">
-            <div><i class="ph-fill ph-headset"></i> Hỗ trợ khách hàng</div>
+            <div data-i18n="chat_title"><i class="ph-fill ph-headset"></i> Hỗ trợ khách hàng</div>
             <button id="chatCloseBtn"><i class="ph ph-x"></i></button>
         </div>
         <div class="chat-body" id="chatBody"></div>
         <div class="chat-footer">
             <div class="chat-footer-inner">
-                <input type="text" id="chatInput" class="chat-input" placeholder="Nhập nội dung cần hỗ trợ...">
+                <input type="text" id="chatInput" class="chat-input" placeholder="Nhập nội dung cần hỗ trợ..." data-i18n-ph="chat_ph">
                 <button id="chatSendBtn" class="chat-send"><i class="ph-fill ph-paper-plane-right"></i></button>
             </div>
         </div>
@@ -297,14 +299,10 @@
     <script src="script.js" defer></script>
 
     <script>
-        // Intro splash animation
-        // Chỉ chạy lần đầu trong session — khi người dùng chuyển tab rồi quay lại
-        // thì splash đã được đánh dấu "đã xem" → ẩn ngay, không replay animation.
         (() => {
             const el = id => document.getElementById(id);
             const splash = el('splash-screen');
 
-            // Nếu đã từng hiển thị splash trong session này → ẩn ngay lập tức
             if (sessionStorage.getItem('sdb_splash_shown')) {
                 splash.style.visibility = 'hidden';
                 splash.style.pointerEvents = 'none';
@@ -312,7 +310,6 @@
                 return;
             }
 
-            // Đánh dấu đã hiển thị để các lần sau (chuyển tab, quay lại) bỏ qua
             sessionStorage.setItem('sdb_splash_shown', '1');
 
             const left = el('splashLeft');
@@ -337,8 +334,6 @@
             setTimeout(() => {
                 add(splash, 'fade-out');
                 setTimeout(() => {
-                    // visibility:hidden thay vì display:none
-                    // → giữ không gian trong DOM, tránh layout shift
                     splash.style.visibility = 'hidden';
                     splash.style.pointerEvents = 'none';
                     document.body.style.overflow = '';

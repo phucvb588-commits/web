@@ -434,8 +434,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             section.id = cat.id;
             section.innerHTML = `
                 <div class="section-header">
-                    <h2>${cat.name}</h2>
-                    <a href="#">Xem tất cả →</a>
+                    <h2>${window.t_cat ? window.t_cat(cat.name) : cat.name}</h2>
+                    <a href="#">${i18nConfig[currentLang]?.cat_all || 'Xem tất cả →'}</a>
                 </div>
                 <div class="products-grid">
                     ${catProducts.map(buildCard).join('')}
@@ -480,7 +480,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <div class="product-img-wrapper">
                     <img src="${p.image}" alt="${p.name}" loading="lazy" decoding="async">
                 </div>
-                <div class="product-name">${p.name}</div>
+                <div class="product-name">${window.t_name ? window.t_name(p.name) : p.name}</div>
                 <div>
                     <span class="product-price">${fmt(p.price)}</span>${oldPrice}
                 </div>
@@ -499,7 +499,7 @@ document.addEventListener('DOMContentLoaded', async () => {
      */
     function renderModal(p) {
         const features = (p.features || [])
-            .map(f => `<li><i class="ph-fill ph-check-circle"></i> ${f}</li>`)
+            .map(f => `<li><i class="ph-fill ph-check-circle"></i> ${window.t_feat ? window.t_feat(f) : f}</li>`)
             .join('');
 
         // Render toàn bộ modal 1 lần duy nhất (không double-render như trước)
@@ -510,15 +510,15 @@ document.addEventListener('DOMContentLoaded', async () => {
                     <img src="${p.image}" alt="${p.name}" loading="eager">
                 </div>
                 <div class="modal-product-info">
-                    <h2>${p.name}</h2>
+                    <h2>${window.t_name ? window.t_name(p.name) : p.name}</h2>
                     <div class="modal-product-price">${fmt(p.price)}</div>
                     <ul class="modal-product-features">${features}</ul>
                     <div class="modal-actions">
                         <button class="btn-primary w-full" id="modalAddCartBtn">
-                            <i class="ph ph-shopping-cart"></i> Thêm vào giỏ hàng
+                            ${i18nConfig[currentLang]?.modal_add || '<i class="ph ph-shopping-cart"></i> Thêm vào giỏ hàng'}
                         </button>
                         <button class="btn-secondary w-full">
-                            <i class="ph ph-phone"></i> Liên hệ mua ngay
+                            ${i18nConfig[currentLang]?.modal_contact || '<i class="ph ph-phone"></i> Liên hệ mua ngay'}
                         </button>
                     </div>
                 </div>
@@ -577,7 +577,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!cartItemsList) return;
 
         if (n === 0) {
-            cartItemsList.innerHTML = `<div class="empty-cart">🛒 Giỏ hàng đang trống</div>`;
+            cartItemsList.innerHTML = `<div class="empty-cart">${i18nConfig[currentLang]?.cart_empty || '🛒 Giỏ hàng đang trống'}</div>`;
             cartTotalEl.textContent = '0 ₫';
             return;
         }
@@ -590,9 +590,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <div class="cart-item">
                     <img src="${item.image}" alt="${item.name}" loading="lazy">
                     <div class="cart-item-info">
-                        <div class="cart-item-name">${item.name}</div>
+                        <div class="cart-item-name">${window.t_name ? window.t_name(item.name) : item.name}</div>
                         <div class="cart-item-price">${fmt(item.price)}</div>
-                        <button class="cart-item-remove" onclick="window.removeFromCart(${i})">Xóa</button>
+                        <button class="cart-item-remove" onclick="window.removeFromCart(${i})">${i18nConfig[currentLang]?.remove || 'Xóa'}</button>
                     </div>
                 </div>`;
         }).join('');
@@ -665,7 +665,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             loginLabel.textContent = currentUser.username;
             loginTrigger.title = 'Nhấn để đăng xuất';
         } else {
-            loginLabel.textContent = 'Đăng nhập';
+            loginLabel.textContent = i18nConfig[currentLang]?.login || 'Đăng nhập';
             loginTrigger.title = '';
         }
     }
@@ -693,11 +693,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     authToggleLink.onclick = e => {
         e.preventDefault();
         isLoginMode = !isLoginMode;
-        authTitle.textContent = isLoginMode ? 'Đăng Nhập' : 'Đăng Ký';
-        authSubtitle.textContent = isLoginMode ? 'Chào mừng bạn trở lại!' : 'Tạo tài khoản mới';
-        authSubmitBtn.textContent = isLoginMode ? 'ĐĂNG NHẬP' : 'ĐĂNG KÝ';
-        authToggleText.textContent = isLoginMode ? 'Chưa có tài khoản?' : 'Đã có tài khoản?';
-        authToggleLink.textContent = isLoginMode ? 'Đăng ký ngay' : 'Đăng nhập';
+        const d = i18nConfig[currentLang];
+        authTitle.textContent = isLoginMode ? d.auth_title_login : d.auth_title_reg;
+        authSubtitle.textContent = isLoginMode ? d.auth_sub_login : d.auth_sub_reg;
+        authSubmitBtn.textContent = isLoginMode ? d.auth_btn_login : d.auth_btn_reg;
+        authToggleText.textContent = isLoginMode ? d.auth_text_login : d.auth_text_reg;
+        authToggleLink.textContent = isLoginMode ? d.auth_link_login : d.auth_link_reg;
     };
 
     // Xử lý submit form đăng nhập / đăng ký
@@ -753,12 +754,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     const chatBody = document.getElementById('chatBody');
 
     // Câu trả lời tự động của bot, xoay vòng lần lượt
-    const botReplies = [
-        'Chào bạn! Mình có thể hỗ trợ gì cho bạn?',
-        'Chính sách đổi trả trong 30 ngày, bạn yên tâm nhé!',
-        'Miễn phí vận chuyển cho đơn hàng từ 500.000₫.',
-        'Liên hệ hotline 1800 1234 để được tư vấn trực tiếp.',
-    ];
+    const botReplies = () => {
+        const d = i18nConfig[currentLang];
+        return [d.bot_r1, d.bot_r2, d.bot_r3, d.bot_r4];
+    };
     let replyIdx = 0;
 
     // Mở/đóng widget chat
@@ -787,7 +786,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!text) return;
         addMsg(text, 'user');
         chatInput.value = '';
-        setTimeout(() => addMsg(botReplies[replyIdx++ % botReplies.length], 'bot'), 800);
+        setTimeout(() => addMsg(botReplies()[replyIdx++ % botReplies().length], 'bot'), 800);
     }
 
     chatSend.onclick = sendChat;
@@ -860,7 +859,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const q = query.toLowerCase();
         const matches = allProducts
-            .filter(p => p.name.toLowerCase().includes(q))
+            .filter(p => {
+                const n = window.t_name ? window.t_name(p.name) : p.name;
+                return n.toLowerCase().includes(q);
+            })
             .slice(0, 6); // Giới hạn tối đa 6 gợi ý để tránh overflow giao diện
 
         if (matches.length === 0) {
@@ -870,7 +872,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             searchSuggestions.innerHTML = matches.map(p => `
                 <div class="suggestion-item" data-id="${p.id}">
                     <i class="ph ph-bicycle"></i>
-                    <span>${highlightMatch(p.name, query)}</span>
+                    <span>${highlightMatch(window.t_name ? window.t_name(p.name) : p.name, query)}</span>
                     <span class="suggestion-price">${fmt(p.price)}</span>
                 </div>
             `).join('');
