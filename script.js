@@ -656,6 +656,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const loginLabel = document.getElementById('loginLabel');
     const userInp = document.getElementById('authUsername');
     const passInp = document.getElementById('authPassword');
+    const phoneGrp = document.getElementById('authPhoneGroup');
+    const phoneInp = document.getElementById('authPhone');
 
     let isLoginMode = true; // true = đăng nhập, false = đăng ký
 
@@ -699,6 +701,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         authSubmitBtn.textContent = isLoginMode ? d.auth_btn_login : d.auth_btn_reg;
         authToggleText.textContent = isLoginMode ? d.auth_text_login : d.auth_text_reg;
         authToggleLink.textContent = isLoginMode ? d.auth_link_login : d.auth_link_reg;
+        if (phoneGrp) phoneGrp.style.display = isLoginMode ? 'none' : 'block';
     };
 
     // Xử lý submit form đăng nhập / đăng ký
@@ -725,7 +728,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                 alert('Tên này đã được dùng, vui lòng chọn tên khác.');
                 return;
             }
-            const newUser = { username: u, password: p };
+            const ph = phoneInp ? phoneInp.value.trim() : '';
+            if (!ph) { alert('Vui lòng nhập số điện thoại.'); return; }
+            
+            const newUser = { username: u, password: p, phone: ph };
             usersDb.push(newUser);
             localStorage.setItem('sdb_users', JSON.stringify(usersDb));
             currentUser = newUser;
@@ -738,6 +744,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Xóa form sau khi xử lý xong
         userInp.value = '';
         passInp.value = '';
+        if (phoneInp) phoneInp.value = '';
     };
 
     updateAuthHeader(); // Khôi phục trạng thái đăng nhập từ localStorage
