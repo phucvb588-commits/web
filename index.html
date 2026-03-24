@@ -267,6 +267,21 @@
                 <input type="password" id="authPassword" placeholder="Nhập mật khẩu" data-i18n-ph="auth_pass_ph">
             </div>
             <button id="authSubmitBtn" class="btn-primary w-full" data-i18n="auth_btn_login">ĐĂNG NHẬP</button>
+            
+            <div class="auth-divider" style="display: flex; align-items: center; text-align: center; margin: 15px 0;">
+                <span style="flex: 1; border-bottom: 1px solid var(--border);"></span>
+                <span class="auth-divider-text" style="padding: 0 10px; color: var(--text-muted); font-size: 0.85rem;" data-i18n="auth_or">Hoặc đăng nhập bằng</span>
+                <span style="flex: 1; border-bottom: 1px solid var(--border);"></span>
+            </div>
+            <div class="social-login" style="display: flex; gap: 10px; margin-bottom: 15px;">
+                <button class="btn-ghost w-full" style="flex: 1; justify-content: center;" id="authFacebookBtn">
+                    <i class="ph-fill ph-facebook-logo" style="color: #1877F2; font-size: 1.2rem;"></i> <span data-i18n="auth_facebook">Facebook</span>
+                </button>
+                <button class="btn-ghost w-full" style="flex: 1; justify-content: center;" id="authGoogleBtn">
+                    <i class="ph-fill ph-google-logo" style="color: #DB4437; font-size: 1.2rem;"></i> <span data-i18n="auth_google">Google</span>
+                </button>
+            </div>
+
             <p class="auth-toggle">
                 <span id="authToggleText" data-i18n="auth_text_login">Chưa có tài khoản?</span>
                 <a href="#" id="authToggleLink" data-i18n="auth_link_login">Đăng ký ngay</a>

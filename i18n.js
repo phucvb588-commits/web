@@ -44,6 +44,10 @@ const i18nConfig = {
         "auth_btn_login": "ĐĂNG NHẬP", "auth_btn_reg": "ĐĂNG KÝ",
         "auth_text_login": "Chưa có tài khoản?", "auth_link_login": "Đăng ký ngay",
         "auth_text_reg": "Đã có tài khoản?", "auth_link_reg": "Đăng nhập",
+        // Social Auth
+        "auth_or": "Hoặc đăng nhập bằng",
+        "auth_facebook": "Facebook",
+        "auth_google": "Google",
         // Chat
         "chat_title": "<i class=\"ph-fill ph-headset\"></i> Hỗ trợ khách hàng",
         "chat_ph": "Nhập nội dung cần hỗ trợ...",
@@ -100,6 +104,10 @@ const i18nConfig = {
         "auth_btn_login": "LOGIN", "auth_btn_reg": "REGISTER",
         "auth_text_login": "Don't have an account?", "auth_link_login": "Register now",
         "auth_text_reg": "Already have an account?", "auth_link_reg": "Login now",
+        // Social Auth
+        "auth_or": "Or login with",
+        "auth_facebook": "Facebook",
+        "auth_google": "Google",
         "chat_title": "<i class=\"ph-fill ph-headset\"></i> Customer Support",
         "chat_ph": "Type your message...",
         "bot_r1": "Hello! How can I help you?",
