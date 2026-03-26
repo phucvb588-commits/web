@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "id": "local_1710000000000",
+      "username": "admin",
+      "password": "123",
+      "phone": "0123456789",
+      "provider": "local",
+      "socialId": null,
+      "name": "admin"
+    },
+    {
+      "id": "social_1710000000001",
+      "username": "facebook_123",
+      "password": "",
+      "phone": "",
+      "provider": "facebook",
+      "socialId": "FACEBOOK-45678",
+      "name": "Facebook User"
+    },
+    {
+      "id": "social_1710000000002",
+      "username": "google_987",
+      "password": "",
+      "phone": "",
+      "provider": "google",
+      "socialId": "GOOGLE-12345",
+      "name": "Google User"
+    }
+  ]
+}

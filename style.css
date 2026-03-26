@@ -1474,6 +1474,40 @@ a {
     color: rgba(255, 255, 255, 0.6);
 }
 
+/* ======== TOAST NOTIFICATION ======== */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: none;
+}
+
+.toast {
+    background: var(--white);
+    color: var(--text);
+    padding: 14px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    border-left: 4px solid #22c55e;
+    transform: translateX(120%);
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease;
+    font-size: 0.95rem;
+    font-weight: 500;
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+}
+
+.toast.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
 /* ======== RESPONSIVE ======== */
 @media (max-width: 1000px) {
     .products-grid {

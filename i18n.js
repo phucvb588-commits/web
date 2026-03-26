@@ -48,6 +48,8 @@ const i18nConfig = {
         "auth_or": "Hoặc đăng nhập bằng",
         "auth_facebook": "Facebook",
         "auth_google": "Google",
+        "toast_login": "Chào mừng {name} đăng nhập thành công 🎉",
+        "toast_reg": "Chào mừng {name} đăng ký thành công 🎉",
         // Chat
         "chat_title": "<i class=\"ph-fill ph-headset\"></i> Hỗ trợ khách hàng",
         "chat_ph": "Nhập nội dung cần hỗ trợ...",
@@ -108,6 +110,8 @@ const i18nConfig = {
         "auth_or": "Or login with",
         "auth_facebook": "Facebook",
         "auth_google": "Google",
+        "toast_login": "Welcome {name}, logged in successfully 🎉",
+        "toast_reg": "Welcome {name}, registered successfully 🎉",
         "chat_title": "<i class=\"ph-fill ph-headset\"></i> Customer Support",
         "chat_ph": "Type your message...",
         "bot_r1": "Hello! How can I help you?",

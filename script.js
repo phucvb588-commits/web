@@ -711,34 +711,44 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!u || !p) { alert('Vui lòng điền đầy đủ thông tin.'); return; }
 
         if (isLoginMode) {
-            // Đăng nhập: tìm user khớp username + password
-            const found = usersDb.find(x => x.username === u && x.password === p);
+            // Đăng nhập: tìm user khớp username + password (tài khoản thường)
+            const found = usersDb.find(x => x.username === u && x.password === p && (x.provider === 'local' || !x.provider));
             if (found) {
                 currentUser = found;
                 localStorage.setItem('sdb_user', JSON.stringify(found));
                 authModal.classList.remove('active');
                 updateAuthHeader();
-                alert(`Chào mừng ${found.username}! 🎉`);
+                const d = i18nConfig[currentLang];
+                showToast(d.toast_login.replace('{name}', found.name || found.username));
             } else {
                 alert('Sai tên đăng nhập hoặc mật khẩu.');
             }
         } else {
             // Đăng ký: kiểm tra tên chưa tồn tại rồi tạo tài khoản mới
-            if (usersDb.find(x => x.username === u)) {
+            if (usersDb.find(x => x.username === u && (x.provider === 'local' || !x.provider))) {
                 alert('Tên này đã được dùng, vui lòng chọn tên khác.');
                 return;
             }
             const ph = phoneInp ? phoneInp.value.trim() : '';
             if (!ph) { alert('Vui lòng nhập số điện thoại.'); return; }
             
-            const newUser = { username: u, password: p, phone: ph };
+            const newUser = { 
+                id: 'local_' + Date.now(),
+                username: u, 
+                password: p, 
+                phone: ph,
+                provider: 'local',
+                socialId: null,
+                name: u 
+            };
             usersDb.push(newUser);
             localStorage.setItem('sdb_users', JSON.stringify(usersDb));
             currentUser = newUser;
             localStorage.setItem('sdb_user', JSON.stringify(newUser));
             authModal.classList.remove('active');
             updateAuthHeader();
-            alert(`Đăng ký thành công! Chào ${newUser.username} 🎉`);
+            const d = i18nConfig[currentLang];
+            showToast(d.toast_reg.replace('{name}', newUser.name || newUser.username));
         }
 
         // Xóa form sau khi xử lý xong
@@ -747,7 +757,81 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (phoneInp) phoneInp.value = '';
     };
 
+    // ============================================================
+    // Đăng nhập Social (Google / Facebook) - Mock Flow
+    // ============================================================
+    const fbBtn = document.getElementById('authFacebookBtn');
+    const googleBtn = document.getElementById('authGoogleBtn');
+
+    function handleSocialLogin(provider) {
+        // Tạo thông tin nhận diện tài khoản mạng xã hội ngẫu nhiên
+        const socialId = provider.toUpperCase() + '-' + Math.floor(Math.random() * 100000);
+        const randomName = provider === 'google' ? 'Google User' : 'Facebook User';
+        const displayUsername = provider + '_' + Math.floor(Math.random() * 1000);
+
+        // Trong thực tế, bạn sẽ kiểm tra theo socialId. Cấu trúc mock này mỗi lần bấm sẽ ngẫu nhiên (chưa lưu state đăng nhập thật với api).
+        // Tuy nhiên để mô phỏng cơ sở dữ liệu, ta sẽ coi mỗi lần bấm đăng nhập social là tạo một phiên mới với user ngẫu nhiên
+        // HOẶC giả lập bằng cách chỉ tìm user đầu tiên của mxh đó để ghi nhớ.
+        let foundUser = usersDb.find(x => x.provider === provider);
+
+        if (!foundUser) {
+            foundUser = {
+                id: 'social_' + Date.now(),
+                username: displayUsername,
+                password: '',
+                phone: '',
+                provider: provider,
+                socialId: socialId,
+                name: randomName
+            };
+            usersDb.push(foundUser);
+            localStorage.setItem('sdb_users', JSON.stringify(usersDb));
+        }
+
+        currentUser = foundUser;
+        localStorage.setItem('sdb_user', JSON.stringify(foundUser));
+        
+        authModal.classList.remove('active');
+        updateAuthHeader();
+        const d = i18nConfig[currentLang];
+        showToast(d.toast_login.replace('{name}', foundUser.name || foundUser.username));
+    }
+
+    if (fbBtn) fbBtn.onclick = () => handleSocialLogin('facebook');
+    if (googleBtn) googleBtn.onclick = () => handleSocialLogin('google');
+
     updateAuthHeader(); // Khôi phục trạng thái đăng nhập từ localStorage
+
+    // ============================================================
+    // TOAST NOTIFICATION
+    // ============================================================
+    function showToast(message) {
+        let container = document.getElementById('toastContainer');
+        if (!container) {
+            container = document.createElement('div');
+            container.id = 'toastContainer';
+            container.className = 'toast-container';
+            document.body.appendChild(container);
+        }
+
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.innerHTML = `<i class="ph-fill ph-check-circle" style="color: #22c55e; font-size: 1.2rem; margin-right: 8px;"></i> ${message}`;
+        container.appendChild(toast);
+
+        // Kích hoạt transition
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                toast.classList.add('show');
+            });
+        });
+
+        // Ẩn sau 2 giây
+        setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => toast.remove(), 400); 
+        }, 2000); 
+    }
 
 
     // ============================================================
