@@ -425,6 +425,29 @@ document.addEventListener('DOMContentLoaded', async () => {
         // → giảm số lần reflow so với innerHTML += nhiều lần
         const fragment = document.createDocumentFragment();
 
+        const cyberCatGrid = document.getElementById('cyberCatGrid');
+        if (cyberCatGrid) {
+            cyberCatGrid.innerHTML = categories.map(cat => {
+                const count = allProducts.filter(p => p.categoryId === cat.id).length;
+                let bgImage = 'https://images.unsplash.com/photo-1532298229144-0ec0c57515c7';
+                if (cat.id === 'sports-bikes') bgImage = 'https://images.unsplash.com/photo-1544181057-7977a4143a57';
+                else if (cat.id === 'kids-bikes') bgImage = 'https://images.unsplash.com/photo-1557257321-72f87ee8d462';
+                
+                return `
+                <a href="#${cat.id}" class="cyber-cat-card" style="text-decoration:none;">
+                    <div class="cyber-cat-bg" style="background-image: url('${bgImage}')"></div>
+                    <div class="cyber-cat-content">
+                        <div class="cyber-cat-title">${window.t_cat ? window.t_cat(cat.name) : cat.name}</div>
+                        <div class="cyber-cat-subtitle">${cat.name.split(' ')[0] || 'XE'} ${window.t_feat ? window.t_feat('CATEGORY') : 'CATEGORY'}</div>
+                        <div class="cyber-cat-bottom">
+                            <span class="cyber-cat-count">${count} ${window.t_feat ? window.t_feat('sản phẩm') : 'sản phẩm'}</span>
+                            <span class="cyber-cat-btn">${window.t_feat ? window.t_feat('Xem Ngay') : 'Xem Ngay'}</span>
+                        </div>
+                    </div>
+                </a>`;
+            }).join('');
+        }
+
         categories.forEach(cat => {
             const catProducts = allProducts.filter(p => p.categoryId === cat.id);
             if (!catProducts.length) return; // Bỏ qua danh mục rỗng
@@ -433,12 +456,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             section.className = 'category-block';
             section.id = cat.id;
             section.innerHTML = `
-                <div class="section-header">
-                    <h2>${window.t_cat ? window.t_cat(cat.name) : cat.name}</h2>
-                    <a href="#">${i18nConfig[currentLang]?.cat_all || 'Xem tất cả →'}</a>
+                <div class="cyber-section-header" style="margin-top: 40px; margin-bottom: 30px;">
+                    <h2 style="font-size: 2rem !important; color: #fff; text-transform: uppercase;">${window.t_cat ? window.t_cat(cat.name) : cat.name}</h2>
+                    <p style="color: var(--cyan); margin-top: 5px;">${window.t_feat ? window.t_feat('Những mẫu xe nổi bật nhất chuyên mục') : 'Những mẫu xe nổi bật nhất chuyên mục'}</p>
                 </div>
-                <div class="products-grid">
-                    ${catProducts.map(buildCard).join('')}
+                <div class="cyber-products-grid">
+                    ${catProducts.slice(0, 6).map(buildCard).join('')}
                 </div>`;
             fragment.appendChild(section);
         });
@@ -464,25 +487,48 @@ document.addEventListener('DOMContentLoaded', async () => {
      * @returns {string} HTML string
      */
     function buildCard(p) {
-        // Badge giảm giá (chỉ hiện nếu sản phẩm có trường discount)
-        const badge = p.discount
-            ? `<div class="discount-badge">-${p.discount}%</div>`
-            : '';
-
-        // Giá gốc bị gạch (chỉ hiện nếu có originalPrice)
+        const randomRating = (4.5 + Math.random() * 0.4).toFixed(1);
+        const randomReviews = Math.floor(Math.random() * 300) + 50;
+        
+        const badge = p.discount ? `<div class="badge-hot">-${p.discount}%</div>` : '';
+        const isHot = p.sold > 60 ? `<div class="badge-seller"><i class="ph-fill ph-star"></i> BEST SELLER</div>` : '';
+        
         const oldPrice = p.originalPrice
-            ? `<span class="product-old-price">${fmt(p.originalPrice)}</span>`
-            : '';
+            ? `<span class="cyber-price-old">${fmt(p.originalPrice)}</span>`
+            : `<span class="cyber-price-old" style="visibility:hidden">0₫</span>`;
+
+        const features = (p.features || []).slice(0, 2).map(f => `<li>${window.t_feat ? window.t_feat(f) : f}</li>`).join('');
 
         return `
-            <div class="product-card js-card" data-id="${p.id}">
-                ${badge}
-                <div class="product-img-wrapper">
+            <div class="cyber-product-card js-card" data-id="${p.id}">
+                <div class="cyber-product-badges">
+                    ${isHot}
+                    ${badge}
+                </div>
+                <div class="btn-heart"><i class="ph ph-heart"></i></div>
+                <div class="cyber-product-img">
                     <img src="${p.image}" alt="${p.name}" loading="lazy" decoding="async">
                 </div>
-                <div class="product-name">${window.t_name ? window.t_name(p.name) : p.name}</div>
-                <div>
-                    <span class="product-price">${fmt(p.price)}</span>${oldPrice}
+                <div class="cyber-product-info">
+                    <div class="cyber-product-meta">
+                        <span class="cyber-cat-tag">${p.categoryId}</span>
+                        <div class="cyber-rating">
+                            <span><i class="ph-fill ph-star"></i> ${randomRating}</span> (${randomReviews})
+                        </div>
+                    </div>
+                    <div class="cyber-product-title">${window.t_name ? window.t_name(p.name) : p.name}</div>
+                    <div class="cyber-product-price-row">
+                        <span class="cyber-price">${fmt(p.price)}</span>
+                        ${oldPrice}
+                    </div>
+                    <ul class="cyber-features">
+                        ${features}
+                        <li>Trọng lượng: ${Math.floor(Math.random()*5 + 7)}.${Math.floor(Math.random()*9)} kg</li>
+                    </ul>
+                    <div class="cyber-product-actions">
+                        <button class="btn-details">Chi Tiết</button>
+                        <button class="btn-add-cart" aria-label="Thêm vào giỏ"><i class="ph-bold ph-shopping-cart"></i></button>
+                    </div>
                 </div>
             </div>`;
     }
@@ -540,6 +586,7 @@ document.addEventListener('DOMContentLoaded', async () => {
      */
     function attachCatalogEvents() {
         catalogContainer.addEventListener('click', e => {
+            const btnCart = e.target.closest('.btn-add-cart');
             const card = e.target.closest('.js-card');
             if (!card) return;
 
@@ -547,7 +594,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             const p = allProducts.find(x => x.id === id); 
 
             if (p) {
-                renderModal(p);
+                if (btnCart) {
+                    addToCart(p);
+                } else {
+                    renderModal(p);
+                }
             }
         });
     }
@@ -972,6 +1023,27 @@ document.addEventListener('DOMContentLoaded', async () => {
         searchSuggestions.classList.add('open');
     }
 
+    const searchBtnTrigger = document.getElementById('searchBtnTrigger');
+    const searchDropdown = document.getElementById('searchDropdown');
+
+    if (searchBtnTrigger && searchDropdown) {
+        searchBtnTrigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isOpen = searchDropdown.style.display === 'block';
+            searchDropdown.style.display = isOpen ? 'none' : 'block';
+            if (!isOpen) {
+                searchInput.focus();
+            }
+        });
+        
+        document.addEventListener('click', e => {
+            if (!searchBtnTrigger.contains(e.target) && !searchDropdown.contains(e.target)) {
+                searchDropdown.style.display = 'none';
+                if (searchSuggestions) searchSuggestions.classList.remove('open');
+            }
+        });
+    }
+
     if (searchInput) {
         // Debounce 180ms: người dùng gõ liên tục sẽ chỉ trigger filter sau 180ms nghỉ
         searchInput.addEventListener('input', debounce(() =>
@@ -986,13 +1058,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (card) card.click();
             searchSuggestions.classList.remove('open');
             searchInput.value = '';
-        });
-
-        // Đóng dropdown khi click bên ngoài search wrapper
-        document.addEventListener('click', e => {
-            if (!searchInput.closest('.search-wrapper').contains(e.target)) {
-                searchSuggestions.classList.remove('open');
-            }
         });
 
         // Đóng dropdown khi nhấn phím Escape
@@ -1031,5 +1096,41 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         });
     }
+
+    // ============================================================
+    // 9. LOGO BACKGROUND REMOVAL (CANVAS)
+    // ============================================================
+    const logoImg = new Image();
+    logoImg.src = "logo.png";
+    logoImg.onload = () => {
+        document.querySelectorAll('.logo-canvas').forEach(canvas => {
+            const ctx = canvas.getContext('2d', {willReadFrequently: true});
+            const hRatio = canvas.width / logoImg.width;
+            const vRatio = canvas.height / logoImg.height;
+            const ratio  = Math.min(hRatio, vRatio);
+            const w = logoImg.width * ratio;
+            const h = logoImg.height * ratio;
+            const x = (canvas.width - w) / 2;
+            const y = (canvas.height - h) / 2;  
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(logoImg, 0, 0, logoImg.width, logoImg.height, x, y, w, h);
+            
+            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            const data = imageData.data;
+            for(let i = 0; i < data.length; i += 4) {
+                if (data[i+3] === 0) continue;
+                // Calculate luma to determine if it's white background or dark text
+                const luma = data[i]*0.299 + data[i+1]*0.587 + data[i+2]*0.114;
+                const alpha = 255 - luma; // White luma 255 -> alpha 0
+                
+                data[i] = 255; 
+                data[i+1] = 255; 
+                data[i+2] = 255;
+                data[i+3] = Math.min(255, alpha * 1.5);
+            }
+            ctx.putImageData(imageData, 0, 0);
+        });
+    };
 
 }); // end DOMContentLoaded

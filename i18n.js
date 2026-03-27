@@ -61,7 +61,18 @@ const i18nConfig = {
         "modal_add": "<i class=\"ph ph-shopping-cart\"></i> Thêm vào giỏ hàng",
         "modal_contact": "<i class=\"ph ph-phone\"></i> Liên hệ mua ngay",
         "cat_all": "Xem tất cả →",
-        "remove": "Xóa"
+        "remove": "Xóa",
+        "nav_home": "<i class=\"ph ph-house\"></i> Trang Chủ",
+        "nav_review": "<i class=\"ph ph-star\"></i> Đánh Giá",
+        "nav_contact": "Liên Hệ",
+        "hero_badge_new": "<i class=\"ph-fill ph-lightning\"></i> BÁN XE ĐẠP CHUYÊN NGHIỆP",
+        "hero_title_new": "LEVEL UP<br><span class=\"cyan-text\">YOUR</span> <span class=\"purple-text\">RIDE</span>",
+        "hero_desc_new": "Xe đạp cao cấp với công nghệ hiện đại, thiết kế cyberpunk.<br><span class=\"cyan-text bold\">Miễn phí giao hàng toàn quốc!</span>",
+        "hero_btn_buy": "<i class=\"ph-bold ph-shopping-cart\"></i> Mua Ngay",
+        "hero_btn_cat": "Xem Catalog <i class=\"ph-bold ph-arrow-right\"></i>",
+        "cyber_cat_h2": "DANH MỤC <span class=\"cyan-text\">XE ĐẠP</span>",
+        "cyber_cat_p": "Khám phá các dòng sản phẩm chất lượng cao",
+        "copy_right": "© 2026 SD'bike. <span style=\"color:var(--cyan);font-weight:700;\">Đại lý chính hãng toàn quốc!</span>"
     },
     en: {
         "title": "SD'bike | Genuine Bicycles",
@@ -121,7 +132,18 @@ const i18nConfig = {
         "modal_add": "<i class=\"ph ph-shopping-cart\"></i> Add to cart",
         "modal_contact": "<i class=\"ph ph-phone\"></i> Contact to buy",
         "cat_all": "View all →",
-        "remove": "Remove"
+        "remove": "Remove",
+        "nav_home": "<i class=\"ph ph-house\"></i> Home",
+        "nav_review": "<i class=\"ph ph-star\"></i> Reviews",
+        "nav_contact": "Contact Us",
+        "hero_badge_new": "<i class=\"ph-fill ph-lightning\"></i> PROFESSIONAL BIKE SHOP",
+        "hero_title_new": "LEVEL UP<br><span class=\"cyan-text\">YOUR</span> <span class=\"purple-text\">RIDE</span>",
+        "hero_desc_new": "Premium bicycles with modern technology, cyberpunk design.<br><span class=\"cyan-text bold\">Free nationwide delivery!</span>",
+        "hero_btn_buy": "<i class=\"ph-bold ph-shopping-cart\"></i> Shop Now",
+        "hero_btn_cat": "View Catalog <i class=\"ph-bold ph-arrow-right\"></i>",
+        "cyber_cat_h2": "BICYCLE <span class=\"cyan-text\">CATEGORIES</span>",
+        "cyber_cat_p": "Explore our high-quality product lines",
+        "copy_right": "© 2026 SD'bike. <span style=\"color:var(--cyan);font-weight:700;\">Genuine nationwide dealer!</span>"
     }
 };
 
@@ -240,7 +262,11 @@ const dataI18n = {
     "Tem siêu anh hùng": {en: "Superhero decals"},
     "Xe thăng bằng cho bé 2-4 tuổi": {en: "Balance bike for children 2-4 years old"},
     "Thích hợp biểu diễn nhẹ": {en: "Suitable for light stunts"},
-    "Phuộc nhún trước, phanh đĩa": {en: "Front suspension fork, disc brakes"}
+    "Phuộc nhún trước, phanh đĩa": {en: "Front suspension fork, disc brakes"},
+    "sản phẩm": {en: "products"},
+    "Xem Ngay": {en: "View Now"},
+    "Những mẫu xe nổi bật nhất chuyên mục": {en: "Most outstanding models in this category"},
+    "CATEGORY": {vi: "DANH MỤC", en: "CATEGORY"}
 };
 
 window.t_cat = function(name) {
