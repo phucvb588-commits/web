@@ -83,12 +83,11 @@
                     <span id="langIcon" style="font-size:0.9rem;">EN</span>
                 </button>
                 <div class="search-wrapper cyber-search" style="position:relative;">
-                    <button class="btn-ghost" id="searchBtnTrigger" aria-label="Search"><i class="ph ph-magnifying-glass"></i></button>
+                    <button class="btn-ghost" id="searchBtnTrigger" aria-label="Search" onclick="event.stopPropagation(); var dd=document.getElementById('searchDropdown'); if(dd.style.display==='block'){dd.style.display='none'}else{dd.style.display='block'; var si=document.getElementById('searchInput'); if(si) setTimeout(function(){si.focus()},50);}"><i class="ph ph-magnifying-glass"></i></button>
                     
-                    <div id="searchDropdown" style="display:none; position:absolute; top:140%; right:-10px; background:rgba(10,14,20,0.98); border:1px solid rgba(0,240,255,0.3); border-radius:8px; width:340px; padding:12px; box-shadow:0 0 25px rgba(0,240,255,0.2); backdrop-filter:blur(10px); z-index:1000;" class="cyber-search-dropdown">
-                        <input type="text" id="searchInput" placeholder="Tìm kiếm xe đạp..." data-i18n-ph="search_ph" style="width:100%; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.05); color:#fff; padding:12px 16px; border-radius:6px; outline:none; font-family:'Inter', sans-serif; font-size:0.95rem; display:block;">
+                    <div id="searchDropdown" class="cyber-search-dropdown" style="display:none; position:absolute; top:140%; right:-10px; background:rgba(10,14,20,0.98); border:1px solid rgba(0,240,255,0.3); border-radius:8px; width:340px; padding:12px; box-shadow:0 0 25px rgba(0,240,255,0.2); backdrop-filter:blur(10px); z-index:1000;">
+                        <input type="text" id="searchInput" placeholder="Tìm kiếm xe đạp..." data-i18n-ph="search_ph" style="width:100%; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.05); color:#fff; padding:12px 16px; border-radius:6px; outline:none; font-family:'Inter', sans-serif; font-size:0.95rem; display:block; box-sizing:border-box;">
                         <div id="searchSuggestions" class="search-suggestions" style="margin-top:10px; display:none; flex-direction:column; gap:4px; max-height:350px; overflow-y:auto;">
-                            <!-- suggestions go here -->
                         </div>
                     </div>
                 </div>
@@ -108,8 +107,8 @@
 
     <!-- HERO BANNER -->
     <div class="hero-banner cyber-hero">
-        <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&q=80&w=1920"
-            alt="Cyberbike" class="hero-bg-img cyber-hero-bg" fetchpriority="high">
+        <img src="images/hero_slide_1.png"
+            alt="Xe đạp leo núi" class="hero-bg-img cyber-hero-bg" fetchpriority="high">
         <div class="cyber-hero-overlay"></div>
         <div class="container hero-inner">
             <div class="hero-text cyber-hero-text">

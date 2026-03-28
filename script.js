@@ -1029,10 +1029,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (searchBtnTrigger && searchDropdown) {
         searchBtnTrigger.addEventListener('click', (e) => {
             e.preventDefault();
+            e.stopPropagation();
             const isOpen = searchDropdown.style.display === 'block';
             searchDropdown.style.display = isOpen ? 'none' : 'block';
-            if (!isOpen) {
-                searchInput.focus();
+            if (!isOpen && searchInput) {
+                setTimeout(() => searchInput.focus(), 50);
             }
         });
         
