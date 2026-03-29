@@ -23,9 +23,57 @@
     position: relative;
     padding: 120px 0 80px 0 !important;
     background: none !important;
+    overflow: hidden;
 }
-.cyber-hero-bg {
+.hero-slideshow {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+.hero-slide {
+    position: absolute !important;
+    inset: 0;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
     filter: brightness(0.6) contrast(1.1) saturate(1.2) !important;
+}
+.hero-slide.active {
+    opacity: 1;
+}
+/* Ken Burns subtle zoom on active slide */
+@keyframes heroKenBurns {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.08); }
+}
+.hero-slide.active {
+    animation: heroKenBurns 6s ease-in-out forwards;
+}
+/* Slide indicator dots */
+.hero-slide-dots {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    display: flex;
+    gap: 10px;
+}
+.hero-slide-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.hero-slide-dot.active {
+    background: var(--cyan);
+    box-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
+    transform: scale(1.2);
 }
 .cyber-hero-overlay {
     position: absolute;

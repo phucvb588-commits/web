@@ -107,9 +107,18 @@
 
     <!-- HERO BANNER -->
     <div class="hero-banner cyber-hero">
-        <img src="images/hero_slide_1.png"
-            alt="Xe đạp leo núi" class="hero-bg-img cyber-hero-bg" fetchpriority="high">
+        <div class="hero-slideshow" id="heroSlideshow">
+            <img src="images/hero_slide_1.png"
+                alt="Xe đạp leo núi" class="hero-bg-img cyber-hero-bg hero-slide active" fetchpriority="high">
+            <img src="images/hero_slide_2.png"
+                alt="Xe đạp thể thao" class="hero-bg-img cyber-hero-bg hero-slide">
+            <img src="https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?w=1600&q=80"
+                alt="Xe đạp địa hình" class="hero-bg-img cyber-hero-bg hero-slide" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=1600&q=80"
+                alt="Xe đạp đua" class="hero-bg-img cyber-hero-bg hero-slide" loading="lazy">
+        </div>
         <div class="cyber-hero-overlay"></div>
+        <div class="hero-slide-dots" id="heroSlideDots"></div>
         <div class="container hero-inner">
             <div class="hero-text cyber-hero-text">
                 <div class="cyber-badge" data-i18n="hero_badge_new"><i class="ph-fill ph-lightning"></i> BÁN XE ĐẠP CHUYÊN NGHIỆP</div>
@@ -330,6 +339,57 @@
     </div>
 
     <script src="script.js" defer></script>
+
+    <!-- HERO SLIDESHOW -->
+    <script>
+        (() => {
+            const slides = document.querySelectorAll('.hero-slide');
+            const dotsContainer = document.getElementById('heroSlideDots');
+            if (!slides.length) return;
+
+            let currentSlide = 0;
+            let slideshowInterval;
+
+            // Create indicator dots
+            slides.forEach((_, i) => {
+                const dot = document.createElement('span');
+                dot.className = 'hero-slide-dot' + (i === 0 ? ' active' : '');
+                dot.addEventListener('click', () => goToSlide(i));
+                dotsContainer.appendChild(dot);
+            });
+
+            const dots = dotsContainer.querySelectorAll('.hero-slide-dot');
+
+            function goToSlide(index) {
+                slides[currentSlide].classList.remove('active');
+                dots[currentSlide].classList.remove('active');
+                currentSlide = index % slides.length;
+                slides[currentSlide].classList.add('active');
+                dots[currentSlide].classList.add('active');
+
+                // Reset interval on manual navigation
+                clearInterval(slideshowInterval);
+                startSlideshow();
+            }
+
+            function nextSlide() {
+                goToSlide(currentSlide + 1);
+            }
+
+            function startSlideshow() {
+                slideshowInterval = setInterval(nextSlide, 2000);
+            }
+
+            startSlideshow();
+
+            // Pause on hover for better UX
+            const heroEl = document.querySelector('.cyber-hero');
+            if (heroEl) {
+                heroEl.addEventListener('mouseenter', () => clearInterval(slideshowInterval));
+                heroEl.addEventListener('mouseleave', startSlideshow);
+            }
+        })();
+    </script>
 
     <script>
         (() => {
