@@ -434,14 +434,14 @@ document.addEventListener('DOMContentLoaded', async () => {
                 else if (cat.id === 'kids-bikes') bgImage = 'https://images.unsplash.com/photo-1557257321-72f87ee8d462';
                 
                 return `
-                <a href="#${cat.id}" class="cyber-cat-card" style="text-decoration:none;">
-                    <div class="cyber-cat-bg" style="background-image: url('${bgImage}')"></div>
-                    <div class="cyber-cat-content">
-                        <div class="cyber-cat-title">${window.t_cat ? window.t_cat(cat.name) : cat.name}</div>
-                        <div class="cyber-cat-subtitle">${cat.name.split(' ')[0] || 'XE'} ${window.t_feat ? window.t_feat('CATEGORY') : 'CATEGORY'}</div>
-                        <div class="cyber-cat-bottom">
-                            <span class="cyber-cat-count">${count} ${window.t_feat ? window.t_feat('sản phẩm') : 'sản phẩm'}</span>
-                            <span class="cyber-cat-btn">${window.t_feat ? window.t_feat('Xem Ngay') : 'Xem Ngay'}</span>
+                <a href="#${cat.id}" class="cat-card" style="text-decoration:none;">
+                    <div class="cat-bg" style="background-image: url('${bgImage}')"></div>
+                    <div class="cat-content">
+                        <div class="cat-title">${window.t_cat ? window.t_cat(cat.name) : cat.name}</div>
+                        <div class="cat-subtitle">${cat.name.split(' ')[0] || 'XE'} ${window.t_feat ? window.t_feat('CATEGORY') : 'CATEGORY'}</div>
+                        <div class="cat-bottom">
+                            <span class="cat-count">${count} ${window.t_feat ? window.t_feat('sản phẩm') : 'sản phẩm'}</span>
+                            <span class="cat-btn">${window.t_feat ? window.t_feat('Xem Ngay') : 'Xem Ngay'}</span>
                         </div>
                     </div>
                 </a>`;
@@ -456,11 +456,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             section.className = 'category-block';
             section.id = cat.id;
             section.innerHTML = `
-                <div class="cyber-section-header" style="margin-top: 40px; margin-bottom: 30px;">
+                <div class="section-header" style="margin-top: 40px; margin-bottom: 30px;">
                     <h2 style="font-size: 2rem !important; color: #fff; text-transform: uppercase;">${window.t_cat ? window.t_cat(cat.name) : cat.name}</h2>
                     <p style="color: var(--cyan); margin-top: 5px;">${window.t_feat ? window.t_feat('Những mẫu xe nổi bật nhất chuyên mục') : 'Những mẫu xe nổi bật nhất chuyên mục'}</p>
                 </div>
-                <div class="cyber-products-grid">
+                <div class="products-grid">
                     ${catProducts.slice(0, 6).map(buildCard).join('')}
                 </div>`;
             fragment.appendChild(section);
@@ -474,7 +474,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     } catch (err) {
         // Hiển thị lỗi thân thiện thay vì crash trang
         catalogContainer.innerHTML = `
-            <div style="text-align:center;padding:60px;color:#cc0000;">
+            <div style="text-align:center;padding:60px;color:#ff003c;">
                 <h3>Lỗi tải dữ liệu</h3>
                 <p>${err}</p>
             </div>`;
@@ -494,38 +494,38 @@ document.addEventListener('DOMContentLoaded', async () => {
         const isHot = p.sold > 60 ? `<div class="badge-seller"><i class="ph-fill ph-star"></i> BEST SELLER</div>` : '';
         
         const oldPrice = p.originalPrice
-            ? `<span class="cyber-price-old">${fmt(p.originalPrice)}</span>`
-            : `<span class="cyber-price-old" style="visibility:hidden">0₫</span>`;
+            ? `<span class="product-price-old">${fmt(p.originalPrice)}</span>`
+            : `<span class="product-price-old" style="visibility:hidden">0₫</span>`;
 
         const features = (p.features || []).slice(0, 2).map(f => `<li>${window.t_feat ? window.t_feat(f) : f}</li>`).join('');
 
         return `
-            <div class="cyber-product-card js-card" data-id="${p.id}">
-                <div class="cyber-product-badges">
+            <div class="product-card js-card" data-id="${p.id}">
+                <div class="product-badges">
                     ${isHot}
                     ${badge}
                 </div>
                 <div class="btn-heart"><i class="ph ph-heart"></i></div>
-                <div class="cyber-product-img">
+                <div class="product-img-wrapper">
                     <img src="${p.image}" alt="${p.name}" loading="lazy" decoding="async">
                 </div>
-                <div class="cyber-product-info">
-                    <div class="cyber-product-meta">
-                        <span class="cyber-cat-tag">${p.categoryId}</span>
-                        <div class="cyber-rating">
+                <div class="product-info">
+                    <div class="product-meta">
+                        <span class="cat-tag">${p.categoryId}</span>
+                        <div class="product-rating">
                             <span><i class="ph-fill ph-star"></i> ${randomRating}</span> (${randomReviews})
                         </div>
                     </div>
-                    <div class="cyber-product-title">${window.t_name ? window.t_name(p.name) : p.name}</div>
-                    <div class="cyber-product-price-row">
-                        <span class="cyber-price">${fmt(p.price)}</span>
+                    <div class="product-name">${window.t_name ? window.t_name(p.name) : p.name}</div>
+                    <div class="product-price-row">
+                        <span class="product-price">${fmt(p.price)}</span>
                         ${oldPrice}
                     </div>
-                    <ul class="cyber-features">
+                    <ul class="product-features">
                         ${features}
                         <li>Trọng lượng: ${Math.floor(Math.random()*5 + 7)}.${Math.floor(Math.random()*9)} kg</li>
                     </ul>
-                    <div class="cyber-product-actions">
+                    <div class="product-actions">
                         <button class="btn-details">Chi Tiết</button>
                         <button class="btn-add-cart" aria-label="Thêm vào giỏ"><i class="ph-bold ph-shopping-cart"></i></button>
                     </div>
@@ -650,7 +650,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         cartTotalEl.textContent = fmt(total);
     }
 
-    /** Thêm sản phẩm vào giỏ và lưu localStorage */
+    /**
+     * Thêm một sản phẩm vào giỏ hàng và lưu trạng thái để giữ dữ liệu trên bộ nhớ thiết bị (localStorage).
+     * Ngay sau khi thêm vào danh sách, hàm sẽ đồng bộ lại biểu tượng đếm tiền và mở thanh giỏ hàng lên.
+     * @param {Object} product - Đối tượng sản phẩm muốn thêm vào bộ nhớ
+     */
     function addToCart(product) {
         shoppingCart.push(product);
         localStorage.setItem('sdb_cart', JSON.stringify(shoppingCart));
@@ -658,7 +662,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         cartOverlay.classList.add('active');
     }
 
-    /** Xóa sản phẩm khỏi giỏ theo chỉ số mảng */
+    /**
+     * Xóa bớt một sản phẩm tại vị trí nhất định trong giỏ hàng.
+     * Lưu lại thay đổi trên bộ nhớ (localStorage) để lần sau truy cập giỏ hàng không bị sai lệch,
+     * đồng thời vẽ lại danh sách và tổng tiền trên giao diện.
+     * Hàm được gắn trên biến toàn cục 'window' để dễ dàng gọi thông qua thuộc tính 'onclick' từ tệp html.
+     * @param {number} i - Chỉ mục (index) của sản phẩm trong mảng giỏ hàng
+     */
     window.removeFromCart = i => {
         shoppingCart.splice(i, 1);
         localStorage.setItem('sdb_cart', JSON.stringify(shoppingCart));
@@ -712,7 +722,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     let isLoginMode = true; // true = đăng nhập, false = đăng ký
 
-    /** Cập nhật tên hiển thị trên nút header: tên user hoặc "Đăng nhập" */
+    /**
+     * Cập nhật thông tin giao diện Header khi trạng thái tài khoản thay đổi:
+     * - Nếu người dùng đang đăng nhập: thay đổi nút trên Header thành tên của người dùng đó (kèm chức năng Đăng xuất).
+     * - Nếu chưa, đưa nút quay về nhãn "Đăng nhập" mặc định trên trình đơn.
+     */
     function updateAuthHeader() {
         if (currentUser) {
             loginLabel.textContent = currentUser.username;
@@ -755,7 +769,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (phoneGrp) phoneGrp.style.display = isLoginMode ? 'none' : 'block';
     };
 
-    // Xử lý submit form đăng nhập / đăng ký
+    /**
+     * Hàm xử lý khi người dùng ấn nút "Đăng Nhập" hoặc "Đăng Ký".
+     * Tuỳ thuộc vào chế độ (isLoginMode), hệ thống sẽ:
+     * 1. Xác thực mật khẩu và người dùng hiện tại (nếu Đăng nhập)
+     * 2. Hoặc khởi tạo tài khoản mới nếu tài khoản đó không trùng lặp (nếu Đăng ký)
+     * Cuối cùng lưu trữ dữ liệu xác thực.
+     */
     authSubmitBtn.onclick = () => {
         const u = userInp.value.trim();
         const p = passInp.value.trim();
@@ -814,6 +834,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     const fbBtn = document.getElementById('authFacebookBtn');
     const googleBtn = document.getElementById('authGoogleBtn');
 
+    /**
+     * Chức năng giả lập luồng Đăng nhập qua mạng xã hội.
+     * Thay vì gọi API bảo mật thật, code sẽ tạo ra một danh tính hoàn toàn mới 
+     * với một hồ sơ rỗng được gắn thông tin nhận biết (Ví dụ tài khoản 'Facebook User').
+     * @param {string} provider - Tên định dạng dịch vụ ('facebook' hoặc 'google')
+     */
     function handleSocialLogin(provider) {
         // Tạo thông tin nhận diện tài khoản mạng xã hội ngẫu nhiên
         const socialId = provider.toUpperCase() + '-' + Math.floor(Math.random() * 100000);
@@ -856,6 +882,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     // ============================================================
     // TOAST NOTIFICATION
     // ============================================================
+    /**
+     * Chức năng hiển thị một Thông báo ngắn (Toast) bật lên trên màn hình báo hiệu 
+     * trạng thái công việc hiện tại (như Đăng ký, Đăng nhập thành công ...). 
+     * Khối thông báo này sẽ từ từ tan đi sau 2 giây để giữ lại tầm nhìn sạch sẽ cho người dùng.
+     * @param {string} message - Nội dung báo hiệu cần báo lên hiển thị
+     */
     function showToast(message) {
         let container = document.getElementById('toastContainer');
         if (!container) {
@@ -867,7 +899,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const toast = document.createElement('div');
         toast.className = 'toast';
-        toast.innerHTML = `<i class="ph-fill ph-check-circle" style="color: #22c55e; font-size: 1.2rem; margin-right: 8px;"></i> ${message}`;
+        toast.innerHTML = `<i class="ph-fill ph-check-circle" style="color: #22c55e; font-size: 1.2rem; margin-right: 8px;"></i> ${message}<div class="toast-progress"></div>`;
         container.appendChild(toast);
 
         // Kích hoạt transition
@@ -895,10 +927,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     const chatInput = document.getElementById('chatInput');
     const chatBody = document.getElementById('chatBody');
 
-    // Câu trả lời tự động của bot, xoay vòng lần lượt
+    /** 
+     * Tra cứu bộ câu trả lời ngẫu nhiên hỗ trợ tự động của trợ lý ảo (Chatbot)
+     */
     const botReplies = () => {
-        const d = i18nConfig[currentLang];
-        return [d.bot_r1, d.bot_r2, d.bot_r3, d.bot_r4];
+        const d = (typeof i18nConfig !== 'undefined' ? i18nConfig[currentLang] : null) || (typeof i18nConfig !== 'undefined' ? i18nConfig['vi'] : {});
+        return [d.bot_r1 || "Chào bạn!", d.bot_r2 || "Bạn cần hỗ trợ gì ạ?", d.bot_r3 || "Miễn phí vận chuyển nhé!", d.bot_r4 || "Hotline: 1800 1234"];
     };
     let replyIdx = 0;
 
@@ -912,23 +946,54 @@ document.addEventListener('DOMContentLoaded', async () => {
     /**
      * Thêm một tin nhắn vào khung chat.
      * @param {string} text - Nội dung tin nhắn
-     * @param {'user'|'bot'} type - Người gửi
+     * @param {'user'|'bot'|'typing'} type - Người gửi
+     * @returns {HTMLElement} - Thẻ div của tin nhắn
      */
     function addMsg(text, type) {
         const div = document.createElement('div');
         div.className = `chat-message ${type}`;
-        div.textContent = text;
+        if (type === 'typing') {
+            div.innerHTML = `<span class="dot"></span><span class="dot"></span><span class="dot"></span>`;
+        } else {
+            div.textContent = text;
+        }
         chatBody.appendChild(div);
         chatBody.scrollTop = chatBody.scrollHeight; // Cuộn xuống cuối
+        return div;
     }
 
-    /** Gửi tin nhắn của user và tự động trả lời sau 800ms */
+    /**
+     * Nhận yêu cầu / tin nhắn vừa gõ rồi hiển thị ngay cho phần người dùng trên khung Chat.
+     */
     function sendChat() {
         const text = chatInput.value.trim();
         if (!text) return;
         addMsg(text, 'user');
         chatInput.value = '';
-        setTimeout(() => addMsg(botReplies()[replyIdx++ % botReplies().length], 'bot'), 800);
+        
+        // Hiển thị trạng thái đang gõ
+        const typingMsg = addMsg('', 'typing');
+
+        setTimeout(() => {
+            // Xóa trạng thái đang gõ
+            typingMsg.remove();
+            
+            // Trả lời theo ngữ cảnh cơ bản
+            const lowerText = text.toLowerCase();
+            const d = (typeof i18nConfig !== 'undefined' ? i18nConfig[currentLang] : null) || {};
+            const replies = botReplies();
+            let reply = replies[replyIdx++ % replies.length];
+            
+            if (lowerText.includes('giá') || lowerText.includes('tiền') || lowerText.includes('price')) {
+                reply = "Dạ, các mẫu xe bên em có giá dao động từ 4 đến 10 triệu đồng tùy dòng ạ. Anh/chị đang quan tâm dòng xe nào?";
+            } else if (lowerText.includes('mua') || lowerText.includes('đặt') || lowerText.includes('buy')) {
+                reply = "Anh/chị cứ chọn mẫu xe ưng ý, thêm vào giỏ hàng và tiến hành đặt lịch nhé. Bên em giao hàng miễn phí toàn quốc!";
+            } else if (lowerText.includes('bảo hành') || lowerText.includes('warranty')) {
+                reply = "SD'Bike bảo hành chính hãng 3 năm cho khung sườn và 1 năm cho phụ kiện. Lỗi 1 đổi 1 trong 30 ngày đầu ạ!";
+            }
+
+            addMsg(reply, 'bot');
+        }, 1200);
     }
 
     chatSend.onclick = sendChat;
@@ -999,11 +1064,21 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
-        const q = query.toLowerCase();
+        // Loại bỏ dấu tiếng Việt để tìm kiếm không dấu
+        const normalizeStr = (str) => {
+            return str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        };
+
+        const queryNormalized = normalizeStr(query);
+        // Tách từ khóa thành mẻ các từ nhỏ, bỏ khoảng trắng thừa
+        const keywords = queryNormalized.split(/\s+/).filter(w => w.length > 0);
+
         const matches = allProducts
             .filter(p => {
                 const n = window.t_name ? window.t_name(p.name) : p.name;
-                return n.toLowerCase().includes(q);
+                const nameNormalized = normalizeStr(n);
+                // Kiểm tra xem MỌI từ khóa người dùng gõ có nằm trong tên sản phẩm không (khớp độc lập thứ tự)
+                return keywords.every(kw => nameNormalized.includes(kw));
             })
             .slice(0, 6); // Giới hạn tối đa 6 gợi ý để tránh overflow giao diện
 
@@ -1072,31 +1147,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     // ============================================================
 
     // ============================================================
-    // 8. THEME TOGGLE
+    // 8. THEME TOGGLE (Đã di chuyển logic vào thẻ script trong index.html)
     // ============================================================
-    const themeToggleBtn = document.getElementById('themeToggleBtn');
-    const themeIcon = document.getElementById('themeIcon');
-    const rootEl = document.documentElement;
 
-    // Giao diện đã được set trong head của HTML, chỉ cần đổi icon cho khớp
-    if (rootEl.getAttribute('data-theme') === 'dark') {
-        if (themeIcon) themeIcon.classList.replace('ph-moon', 'ph-sun');
-    }
-
-    if (themeToggleBtn && themeIcon) {
-        themeToggleBtn.addEventListener('click', () => {
-            const currentTheme = rootEl.getAttribute('data-theme');
-            if (currentTheme === 'dark') {
-                rootEl.removeAttribute('data-theme');
-                localStorage.setItem('sdb_theme', 'light');
-                themeIcon.classList.replace('ph-sun', 'ph-moon');
-            } else {
-                rootEl.setAttribute('data-theme', 'dark');
-                localStorage.setItem('sdb_theme', 'dark');
-                themeIcon.classList.replace('ph-moon', 'ph-sun');
-            }
-        });
-    }
 
     // ============================================================
     // 9. LOGO BACKGROUND REMOVAL (CANVAS)
