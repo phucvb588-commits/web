@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SD'bike | Xe Đạp Chính Hãng</title>
+    <title>Danh Mục Sản Phẩm | SD'bike</title>
     <meta name="description"
         content="SD'bike – Hệ thống cửa hàng xe đạp chính hãng toàn quốc. Giá tốt, bảo hành 3 năm, miễn phí giao hàng.">
 
@@ -24,6 +24,14 @@
     <!-- Language Translation Script -->
     <script src="i18n.js"></script>
     <link rel="stylesheet" href="style.css?v=2026_03_30_v3">
+    <style>
+        .products-grid { grid-template-columns: repeat(4, 1fr) !important; }
+        @media (max-width: 1024px) { .products-grid { grid-template-columns: repeat(3, 1fr) !important; } }
+        @media (max-width: 768px) { .products-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+        @media (max-width: 480px) { .products-grid { grid-template-columns: 1fr !important; } }
+        .page-header { padding: 40px 0 20px; text-align: center; }
+        .page-title { font-size: 2.5rem; color: var(--cyan); font-family: 'Parker', sans-serif; letter-spacing: 2px; }
+    </style>
 </head>
 
 <body>
@@ -69,8 +77,8 @@
             </a>
 
                         <nav class="header-nav" style="display:flex;gap:30px;">
-                <a href="/" class="active" style="display:flex;align-items:center;gap:6px;color:var(--cyan);font-weight:600;" data-i18n="nav_home"><i class="ph ph-house"></i> Trang Chủ</a>
-                <a href="danh-muc.html" style="display:flex;align-items:center;gap:6px;color:var(--text);" data-i18n="nav_cat"><i class="ph ph-list"></i> Danh Mục</a>
+                <a href="index.html" style="display:flex;align-items:center;gap:6px;color:var(--text);" data-i18n="nav_home"><i class="ph ph-house"></i> Trang Chủ</a>
+                <a href="danh-muc.html" style="display:flex;align-items:center;gap:6px;color:var(--cyan);font-weight:600;" data-i18n="nav_cat"><i class="ph ph-list"></i> Danh Mục</a>
                 <a href="ho-tro.html" style="display:flex;align-items:center;gap:6px;color:var(--text);" data-i18n="nav_support"><i class="ph ph-headset"></i> Hỗ Trợ</a>
             </nav>
 
@@ -108,70 +116,12 @@
 
 
 
-    <!-- HERO BANNER -->
-    <div class="hero-banner">
-        <div class="hero-slideshow" id="heroSlideshow">
-            <img src="images/hero_slide_1.png" alt="Xe đạp leo núi" class="hero-bg-img hero-banner-bg hero-slide active"
-                fetchpriority="high">
-            <img src="images/hero_slide_2.png" alt="Xe đạp thể thao" class="hero-bg-img hero-banner-bg hero-slide">
-            <img src="https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?w=1600&q=80" alt="Xe đạp địa hình"
-                class="hero-bg-img hero-banner-bg hero-slide" loading="lazy">
-            <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=1600&q=80" alt="Xe đạp đua"
-                class="hero-bg-img hero-banner-bg hero-slide" loading="lazy">
-        </div>
-        <div class="hero-banner-overlay"></div>
-        <div class="hero-slide-dots" id="heroSlideDots"></div>
-        <div class="container hero-inner">
-            <div class="hero-text hero-banner-text">
-                <div class="hero-badge" data-i18n="hero_badge_new"><i class="ph-fill ph-lightning"></i> BÁN XE ĐẠP
-                    CHUYÊN NGHIỆP</div>
-                <h1 class="hero-title" data-i18n="hero_title_new">LEVEL UP<br><span class="cyan-text">YOUR</span> <span
-                        class="purple-text">RIDE</span></h1>
-                <p class="hero-subtitle" data-i18n="hero_desc_new">Xe đạp cao cấp với công nghệ hiện đại, thiết kế
-                    cyberpunk.<br><span class="cyan-text bold">Miễn phí giao hàng toàn quốc!</span></p>
-                <div class="hero-actions header-actions-row">
-                    <a href="#new-products" class="btn-primary" data-i18n="hero_btn_buy"><i
-                            class="ph-bold ph-shopping-cart"></i> Mua Ngay</a>
-                    <a href="#" class="btn-hero-outline" data-i18n="hero_btn_cat">Xem Catalog <i
-                            class="ph-bold ph-arrow-right"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- TRUST BADGES STRIP -->
-    <div class="trust-strip">
-        <div class="container trust-strip-inner">
-            <div class="trust-item">
-                <i class="ph-fill ph-truck"></i>
-                <div><strong data-i18n="trust_1_title">Miễn phí vận chuyển</strong><span data-i18n="trust_1_p">Đơn từ
-                        500.000₫</span></div>
-            </div>
-            <div class="trust-item">
-                <i class="ph-fill ph-arrows-counter-clockwise"></i>
-                <div><strong data-i18n="trust_2_title">Đổi trả 30 ngày</strong><span data-i18n="trust_2_p">Hoàn tiền
-                        100%</span></div>
-            </div>
-            <div class="trust-item">
-                <i class="ph-fill ph-shield-check"></i>
-                <div><strong data-i18n="trust_3_title">Bảo hành 3 năm</strong><span data-i18n="trust_3_p">Chính hãng
-                        toàn quốc</span></div>
-            </div>
-            <div class="trust-item">
-                <i class="ph-fill ph-headset"></i>
-                <div><strong data-i18n="trust_4_title">Hỗ trợ 24/7</strong><span data-i18n="trust_4_p">... miễn
-                        phí</span></div>
-            </div>
-            <div class="trust-item">
-                <i class="ph-fill ph-seal-check"></i>
-                <div><strong data-i18n="trust_5_title">Hàng chính hãng</strong><span data-i18n="trust_5_p">Cam kết
-                        100%</span></div>
-            </div>
-        </div>
-    </div>
-
     <!-- MAIN CONTENT -->
-    <main class="container main-content" id="main">
+        <main class="container main-content" id="main">
+        <div class="page-header" id="is-category-page">
+            <h1 class="page-title" data-i18n="page_cat_title">DANH MỤC SẢN PHẨM</h1>
+            <p style="color: var(--text-muted);" data-i18n="page_cat_desc">Khám phá tất cả các dòng xe đạp chất lượng cao tại SD'bike</p>
+        </div>
         <div id="product-catalog-container">
             <div class="loading-state" data-i18n="loading">
                 <i class="ph ph-circle-notch"></i>

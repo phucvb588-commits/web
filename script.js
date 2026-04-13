@@ -1,4 +1,4 @@
-/**
+﻿/**
  * script.js – SD'bike Main Script
  *
  * Xử lý toàn bộ tương tác phía client:
@@ -729,11 +729,11 @@ document.addEventListener('DOMContentLoaded', async () => {
      */
     function updateAuthHeader() {
         if (currentUser) {
-            loginLabel.textContent = currentUser.username;
-            loginTrigger.title = 'Nhấn để đăng xuất';
+            if (loginLabel) loginLabel.textContent = currentUser.username;
+            if (loginTrigger) loginTrigger.title = 'Nhấn để đăng xuất';
         } else {
-            loginLabel.textContent = i18nConfig[currentLang]?.login || 'Đăng nhập';
-            loginTrigger.title = '';
+            if (loginLabel) loginLabel.textContent = i18nConfig[currentLang]?.login || 'Đăng nhập';
+            if (loginTrigger) loginTrigger.title = '';
         }
     }
 

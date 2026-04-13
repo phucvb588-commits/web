@@ -65,6 +65,8 @@ const i18nConfig = {
         "nav_home": "<i class=\"ph ph-house\"></i> Trang Chủ",
         "nav_review": "<i class=\"ph ph-star\"></i> Đánh Giá",
         "nav_contact": "Liên Hệ",
+        "nav_cat": "<i class=\"ph ph-list\"></i> Danh Mục",
+        "nav_support": "<i class=\"ph ph-headset\"></i> Hỗ Trợ",
         "hero_badge_new": "<i class=\"ph-fill ph-lightning\"></i> BÁN XE ĐẠP CHUYÊN NGHIỆP",
         "hero_title_new": "LEVEL UP<br><span class=\"cyan-text\">YOUR</span> <span class=\"purple-text\">RIDE</span>",
         "hero_desc_new": "Xe đạp cao cấp với công nghệ hiện đại, thiết kế cyberpunk.<br><span class=\"cyan-text bold\">Miễn phí giao hàng toàn quốc!</span>",
@@ -72,7 +74,17 @@ const i18nConfig = {
         "hero_btn_cat": "Xem Catalog <i class=\"ph-bold ph-arrow-right\"></i>",
         "cyber_cat_h2": "DANH MỤC <span class=\"cyan-text\">XE ĐẠP</span>",
         "cyber_cat_p": "Khám phá các dòng sản phẩm chất lượng cao",
-        "copy_right": "© 2026 SD'bike. <span style=\"color:var(--cyan);font-weight:700;\">Đại lý chính hãng toàn quốc!</span>"
+        "copy_right": "© 2026 SD'bike. <span style=\"color:var(--cyan);font-weight:700;\">Đại lý chính hãng toàn quốc!</span>",
+        "page_cat_title": "DANH MỤC SẢN PHẨM",
+        "page_cat_desc": "Khám phá tất cả các dòng xe đạp chất lượng cao tại SD'bike",
+        "page_sup_title": "<i class=\"ph-fill ph-headset\"></i> Yêu Cầu Hỗ Trợ",
+        "page_sup_desc": "Vui lòng điền thông tin bên dưới, chúng tôi sẽ phản hồi trong thời gian sớm nhất.",
+        "sup_lbl_email": "Email của bạn",
+        "sup_ph_email": "Ví dụ: example@email.com",
+        "sup_lbl_type": "Loại xe cần hỗ trợ",
+        "sup_lbl_content": "Nội dung cần hỗ trợ",
+        "sup_ph_content": "Mô tả chi tiết vấn đề bạn đang gặp phải...",
+        "sup_btn": "<i class=\"ph-bold ph-paper-plane-right\"></i> Gửi Yêu Cầu"
     },
     en: {
         "title": "SD'bike | Genuine Bicycles",
@@ -136,6 +148,8 @@ const i18nConfig = {
         "nav_home": "<i class=\"ph ph-house\"></i> Home",
         "nav_review": "<i class=\"ph ph-star\"></i> Reviews",
         "nav_contact": "Contact Us",
+        "nav_cat": "<i class=\"ph ph-list\"></i> Catalog",
+        "nav_support": "<i class=\"ph ph-headset\"></i> Support",
         "hero_badge_new": "<i class=\"ph-fill ph-lightning\"></i> PROFESSIONAL BIKE SHOP",
         "hero_title_new": "LEVEL UP<br><span class=\"cyan-text\">YOUR</span> <span class=\"purple-text\">RIDE</span>",
         "hero_desc_new": "Premium bicycles with modern technology, cyberpunk design.<br><span class=\"cyan-text bold\">Free nationwide delivery!</span>",
@@ -143,7 +157,17 @@ const i18nConfig = {
         "hero_btn_cat": "View Catalog <i class=\"ph-bold ph-arrow-right\"></i>",
         "cyber_cat_h2": "BICYCLE <span class=\"cyan-text\">CATEGORIES</span>",
         "cyber_cat_p": "Explore our high-quality product lines",
-        "copy_right": "© 2026 SD'bike. <span style=\"color:var(--cyan);font-weight:700;\">Genuine nationwide dealer!</span>"
+        "copy_right": "© 2026 SD'bike. <span style=\"color:var(--cyan);font-weight:700;\">Genuine nationwide dealer!</span>",
+        "page_cat_title": "PRODUCTS CATALOG",
+        "page_cat_desc": "Explore all high-quality bicycles at SD'bike",
+        "page_sup_title": "<i class=\"ph-fill ph-headset\"></i> Support Request",
+        "page_sup_desc": "Please fill in the information below, we will respond as soon as possible.",
+        "sup_lbl_email": "Your Email",
+        "sup_ph_email": "E.g., example@email.com",
+        "sup_lbl_type": "Vehicle Type",
+        "sup_lbl_content": "Support Content",
+        "sup_ph_content": "Describe your issue in detail...",
+        "sup_btn": "<i class=\"ph-bold ph-paper-plane-right\"></i> Submit Request"
     }
 };
 
