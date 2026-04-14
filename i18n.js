@@ -29,7 +29,7 @@ const i18nConfig = {
         "f_col3_title": "Hỗ Trợ Khách Hàng",
         "fc3_1": "Hướng dẫn mua hàng", "fc3_2": "Hướng dẫn giao nhận", "fc3_3": "Chính sách đổi trả",
         "fc3_4": "Chính sách bảo hành", "fc3_5": "Chính sách vận chuyển", "fc3_6": "Tra cứu đơn hàng",
-        "f_col4_title": "Thanh Toán & Chứng Nhận",
+        "f_col4_title": "Thanh Toán",
         // Cart
         "cart_title": "Giỏ Hàng",
         "cart_total": "Tổng tiền",
@@ -116,7 +116,7 @@ const i18nConfig = {
         "f_col3_title": "Customer Support",
         "fc3_1": "Buying Guide", "fc3_2": "Delivery Guide", "fc3_3": "Return Policy",
         "fc3_4": "Warranty Policy", "fc3_5": "Shipping Policy", "fc3_6": "Order Tracking",
-        "f_col4_title": "Payment & Certificates",
+        "f_col4_title": "Payment",
         "cart_title": "Shopping Cart",
         "cart_total": "Total",
         "cart_checkout": "Checkout",

@@ -139,7 +139,7 @@ i[class*=" ph"] {
     left: 50%;
     transform: translateX(-50%);
     color: rgba(255, 255, 255, 0.5);
-    font-family: 'Inter', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 0.85rem;
     letter-spacing: 0.25em;
     text-transform: uppercase;
@@ -211,7 +211,7 @@ i[class*=" ph"] {
 
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.6;
@@ -499,7 +499,7 @@ a {
 }
 
 .hero-text h1 {
-    font-family: 'Parker', 'Inter', sans-serif;
+    font-family: 'Parker', Arial, Helvetica, sans-serif;
     font-size: 2.8rem;
     font-weight: normal;
     margin-bottom: 12px;
@@ -1781,11 +1781,11 @@ a {
 
 .hero-title {
     font-size: 4.5rem;
-    font-weight: 900;
+    font-weight: 700;
     line-height: 1;
     margin-bottom: 20px;
     letter-spacing: -2px;
-    font-family: 'Inter', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .cyan-text {
@@ -1869,7 +1869,7 @@ a {
 
 .section-header h2 {
     font-size: 2.5rem;
-    font-weight: 900;
+    font-weight: 700;
     letter-spacing: 2px;
     margin-bottom: 5px;
 }
@@ -2249,6 +2249,27 @@ a {
     color: var(--text-muted);
 }
 
+.fpay-tag {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 14px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.fpay-tag:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--cyan);
+}
+
+.fpay-tag i {
+    color: var(--cyan);
+    font-size: 1.6rem;
+}
 
 .blend-logo {
     filter: grayscale(1) invert(1) brightness(2);
@@ -2315,6 +2336,7 @@ a {
     .products-grid {
         grid-template-columns: repeat(3, 1fr) !important;
     }
+
     .cat-top-grid {
         grid-template-columns: repeat(2, 1fr) !important;
     }
@@ -2326,33 +2348,41 @@ a {
         height: auto;
         padding: 15px 0;
     }
+
     .header-nav {
         order: 3;
         width: 100%;
         justify-content: center;
         margin-top: 10px;
     }
+
     .hero-text h1 {
         font-size: 2.2rem;
     }
+
     .hero-banner {
         min-height: auto;
         padding: 50px 0;
     }
+
     .products-grid {
         grid-template-columns: repeat(2, 1fr) !important;
     }
+
     .footer-grid {
         grid-template-columns: 1fr !important;
     }
+
     .trust-strip-inner {
         flex-wrap: wrap;
         justify-content: center;
         gap: 15px;
     }
+
     .trust-item {
-        width: 45%; 
+        width: 45%;
     }
+
     .cart-sidebar {
         width: 100%;
         right: -100%;
@@ -2363,21 +2393,27 @@ a {
     .products-grid {
         grid-template-columns: 1fr !important;
     }
+
     .cat-top-grid {
         grid-template-columns: 1fr !important;
     }
+
     .hero-actions {
         flex-direction: column;
         width: 100%;
     }
-    .btn-primary, .btn-hero-outline {
+
+    .btn-primary,
+    .btn-hero-outline {
         width: 100%;
         text-align: center;
     }
+
     .modal-card {
         width: 95% !important;
         margin: 20px auto;
     }
+
     .trust-item {
         width: 100%;
     }
