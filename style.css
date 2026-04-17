@@ -1,7 +1,24 @@
 /* ==========================================================================
    SD'bike - Main Stylesheet
-   Font: Inter | Màu chính: #00f0ff (cyan), #0a0e14 (nền), #f0f6fc (chữ)
+   Font: MJ-Euro (hero) + VerdanaPrimer (body) | Màu chính: #00f0ff (cyan), #0a0e14 (nền), #f0f6fc (chữ)
    ========================================================================== */
+
+/* ======== CUSTOM FONTS ======== */
+@font-face {
+    font-family: 'MJ-Euro';
+    src: url('fonts/MJ-EurostileExtendedBlack.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'VerdanaPrimer';
+    src: url('fonts/VerdanaPrimer.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 
 /* Fix CLS (Layout Shift) cho các icon tải muộn từ unpkg */
 i[class^="ph"],
@@ -211,7 +228,7 @@ i[class*=" ph"] {
 
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'VerdanaPrimer', Arial, Helvetica, sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.6;
@@ -499,7 +516,7 @@ a {
 }
 
 .hero-text h1 {
-    font-family: 'Parker', Arial, Helvetica, sans-serif;
+    font-family: 'MJ-Euro', Arial, Helvetica, sans-serif;
     font-size: 2.8rem;
     font-weight: normal;
     margin-bottom: 12px;
@@ -1355,6 +1372,7 @@ a {
     color: rgba(255, 255, 255, 0.7);
     padding: 60px 0 0;
     margin-top: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .footer-grid {
