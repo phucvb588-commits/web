@@ -38,8 +38,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const cartCountEl = document.getElementById('cartCount');
     const cartSidebarCount = document.getElementById('cartSidebarCount');
     const authModal = document.getElementById('authModal');
-    const productModal = document.getElementById('productModal');
-    const modalBody = document.getElementById('modalBody');
 
 
     // ============================================================
@@ -551,7 +549,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         allProducts = data.products || []; // Dùng trực tiếp dữ liệu tĩnh
 
         const categories = data.categories || [];
-        catalogContainer.innerHTML = ''; // Xóa loading spinner
+        if (catalogContainer) catalogContainer.innerHTML = ''; // Xóa loading spinner
 
         // Dùng DocumentFragment để gom các DOM node, chèn vào trang 1 lần duy nhất
         // → giảm số lần reflow so với innerHTML += nhiều lần
@@ -598,18 +596,18 @@ document.addEventListener('DOMContentLoaded', async () => {
             fragment.appendChild(section);
         });
 
-        catalogContainer.appendChild(fragment); // Chèn 1 lần vào DOM
-
-        // Gắn sự kiện bằng event delegation sau khi DOM sẵn sàng
-        attachCatalogEvents();
-
+        if (catalogContainer) {
+            catalogContainer.appendChild(fragment);
+            attachCatalogEvents();
+        }
     } catch (err) {
-        // Hiển thị lỗi thân thiện thay vì crash trang
-        catalogContainer.innerHTML = `
-            <div style="text-align:center;padding:60px;color:#ff003c;">
-                <h3>Lỗi tải dữ liệu</h3>
-                <p>${err}</p>
-            </div>`;
+        if (catalogContainer) {
+            catalogContainer.innerHTML = `
+                <div style="text-align:center;padding:60px;color:#ff003c;">
+                    <h3>Lỗi tải dữ liệu</h3>
+                    <p>${err}</p>
+                </div>`;
+        }
     }
 
     /**
@@ -670,43 +668,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 2. MODAL CHI TIẾT SẢN PHẨM
     // ============================================================
 
-    /**
-     * Xây và render nội dung modal cho một sản phẩm.
-     * Hàm này là ĐỒNG BỘ hoàn toàn → không gây INP delay.
-     * @param {Object} p - Đối tượng sản phẩm
-     */
-    function renderModal(p) {
-        const features = (p.features || [])
-            .map(f => `<li><i class="ph-fill ph-check-circle"></i> ${window.t_feat ? window.t_feat(f) : f}</li>`)
-            .join('');
 
-        // Render toàn bộ modal 1 lần duy nhất (không double-render như trước)
-        productModal.classList.add('active');
-        modalBody.innerHTML = `
-            <div class="modal-product-grid">
-                <div class="modal-product-img">
-                    <img src="${p.image}" alt="${p.name}" loading="eager">
-                </div>
-                <div class="modal-product-info">
-                    <h2>${window.t_name ? window.t_name(p.name) : p.name}</h2>
-                    <div class="modal-product-price">${fmt(p.price)}</div>
-                    <ul class="modal-product-features">${features}</ul>
-                    <div class="modal-actions">
-                        <button class="btn-primary w-full" id="modalAddCartBtn">
-                            ${i18nConfig[currentLang]?.modal_add || '<i class="ph ph-shopping-cart"></i> Thêm vào giỏ hàng'}
-                        </button>
-                        <button class="btn-secondary w-full">
-                            ${i18nConfig[currentLang]?.modal_contact || '<i class="ph ph-phone"></i> Liên hệ mua ngay'}
-                        </button>
-                    </div>
-                </div>
-            </div>`;
-
-        document.getElementById('modalAddCartBtn').onclick = () => {
-            addToCart(p);
-            productModal.classList.remove('active');
-        };
-    }
 
     /**
      * Event delegation trên catalogContainer.
@@ -729,18 +691,13 @@ document.addEventListener('DOMContentLoaded', async () => {
                 if (btnCart) {
                     addToCart(p);
                 } else {
-                    renderModal(p);
+                    window.location.href = `chi-tiet-san-pham.html?id=${p.id}`;
                 }
             }
         });
     }
 
-    // Đóng modal khi nhấn X hoặc click vùng tối bên ngoài
-    document.getElementById('modalCloseBtn').onclick = () =>
-        productModal.classList.remove('active');
-    productModal.addEventListener('click', e => {
-        if (e.target === productModal) productModal.classList.remove('active');
-    });
+
 
 
     // ============================================================
@@ -793,6 +750,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         syncCartUI();
         cartOverlay.classList.add('active');
     }
+    // Xuất ra global cho các trang khác gọi
+    window.addSdbCartItem = addToCart;
 
     /**
      * Xóa bớt một sản phẩm tại vị trí nhất định trong giỏ hàng.
@@ -1261,9 +1220,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         searchSuggestions.addEventListener('click', e => {
             const item = e.target.closest('.suggestion-item');
             if (!item) return;
-            // Giả lập click vào card tương ứng để mở modal chi tiết
-            const card = catalogContainer.querySelector(`.js-card[data-id="${item.dataset.id}"]`);
-            if (card) card.click();
+            // Chuyển tới trang chi tiết
+            if (item.dataset.id) {
+                window.location.href = `chi-tiet-san-pham.html?id=${item.dataset.id}`;
+            }
             searchSuggestions.classList.remove('open');
             searchInput.value = '';
         });
