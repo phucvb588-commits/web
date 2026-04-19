@@ -47,375 +47,507 @@ document.addEventListener('DOMContentLoaded', async () => {
     // ============================================================
     try {
         const data = {
-  "categories": [
-    {
-      "id": "new-products",
-      "name": "SẢN PHẨM MỚI 2026"
-    },
-    {
-      "id": "kids-bikes",
-      "name": "XE ĐẠP TRẺ EM"
-    },
-    {
-      "id": "sports-bikes",
-      "name": "XE ĐẠP THỂ THAO"
-    }
-  ],
-  "products": [
-    {
-      "id": "1",
-      "categoryId": "sports-bikes",
-      "name": "Xe đạp địa hình MTB X100",
-      "price": 5200000,
-      "image": "https://images.unsplash.com/photo-1511994298241-608e28f14fde",
-      "sold": 120,
-      "features": [
-        "Xe đạp địa hình khung nhôm, 21 tốc độ"
-      ]
-    },
-    {
-      "id": "2",
-      "categoryId": "sports-bikes",
-      "name": "Xe đạp địa hình MTB Pro",
-      "price": 6100000,
-      "image": "https://images.unsplash.com/photo-1507035895480-2b3156c31fc8",
-      "sold": 90,
-      "features": [
-        "Xe đạp leo núi giảm xóc trước"
-      ]
-    },
-    {
-      "id": "3",
-      "categoryId": "sports-bikes",
-      "name": "Xe đạp đua Road Bike R200",
-      "price": 7800000,
-      "image": "https://images.unsplash.com/photo-1485965120184-e220f721d03e",
-      "sold": 65,
-      "features": [
-        "Xe đạp đua khung nhẹ tốc độ cao"
-      ]
-    },
-    {
-      "id": "4",
-      "categoryId": "new-products",
-      "name": "Xe đạp thành phố City Bike C1",
-      "price": 4200000,
-      "image": "images/citybike 1.webp",
-      "sold": 74,
-      "features": [
-        "Xe đạp đi phố nhẹ và tiện lợi"
-      ]
-    },
-    {
-      "id": "5",
-      "categoryId": "new-products",
-      "name": "Xe đạp gấp Folding Bike F1",
-      "price": 5500000,
-      "image": "images/Folding Bike F1.webp",
-      "sold": 50,
-      "features": [
-        "Xe đạp gấp gọn tiện mang theo"
-      ]
-    },
-    {
-      "id": "6",
-      "categoryId": "sports-bikes",
-      "name": "Xe đạp thể thao Speed S100",
-      "price": 6300000,
-      "image": "images/Speed S100.webp",
-      "sold": 112,
-      "features": [
-        "Thiết kế thể thao khung nhôm"
-      ]
-    },
-    {
-      "id": "7",
-      "categoryId": "sports-bikes",
-      "name": "Xe đạp touring T500",
-      "price": 8200000,
-      "image": "images/touring T500.webp",
-      "sold": 35,
-      "features": [
-        "Xe đạp du lịch đường dài"
-      ]
-    },
-    {
-      "id": "8",
-      "categoryId": "new-products",
-      "name": "Xe đạp Fixed Gear FG1",
-      "price": 4800000,
-      "image": "images/Fixed Gear FG1.webp",
-      "sold": 95,
-      "features": [
-        "Xe đạp fixed gear phong cách"
-      ]
-    },
-    {
-      "id": "9",
-      "categoryId": "sports-bikes",
-      "name": "Xe đạp địa hình MTB Trail",
-      "price": 6900000,
-      "image": "images/MTB Trail.webp",
-      "sold": 60,
-      "features": [
-        "Xe leo núi chuyên dụng"
-      ]
-    },
-    {
-      "id": "10",
-      "categoryId": "kids-bikes",
-      "name": "Xe đạp trẻ em Kid Bike K1",
-      "price": 2100000,
-      "image": "images/Kid Bike K1.webp",
-      "sold": 150,
-      "features": [
-        "Xe đạp cho trẻ em 6-10 tuổi"
-      ]
-    },
-    {
-      "id": "11",
-      "categoryId": "sports-bikes",
-      "name": "Xe đạp địa hình MTB Storm",
-      "price": 6400000,
-      "image": "https://images.unsplash.com/photo-1507035895480-2b3156c31fc8",
-      "sold": 82,
-      "features": [
-        "Khung thép bền bỉ"
-      ]
-    },
-    {
-      "id": "12",
-      "categoryId": "sports-bikes",
-      "name": "Xe đạp đường trường Road Pro",
-      "price": 9300000,
-      "image": "https://images.unsplash.com/photo-1485965120184-e220f721d03e",
-      "sold": 41,
-      "features": [
-        "Xe đạp đua cao cấp"
-      ]
-    },
-    {
-      "id": "13",
-      "categoryId": "new-products",
-      "name": "Xe đạp city Classic",
-      "price": 3900000,
-      "image": "images/city Classic.webp",
-      "sold": 67,
-      "features": [
-        "Phong cách cổ điển"
-      ]
-    },
-    {
-      "id": "14",
-      "categoryId": "sports-bikes",
-      "name": "Xe đạp touring Adventure",
-      "price": 8700000,
-      "image": "images/touring Adventure.webp",
-      "sold": 28,
-      "features": [
-        "Xe đi phượt đường dài"
-      ]
-    },
-    {
-      "id": "15",
-      "categoryId": "sports-bikes",
-      "name": "Xe đạp MTB Hunter",
-      "price": 5800000,
-      "image": "images/MTB Hunter.webp",
-      "sold": 76,
-      "features": [
-        "Giảm xóc mạnh mẽ"
-      ]
-    },
-    {
-      "id": "16",
-      "categoryId": "new-products",
-      "name": "Xe đạp Fixed Urban",
-      "price": 4500000,
-      "image": "images/Fixed Urban.webp",
-      "sold": 55,
-      "features": [
-        "Phong cách đường phố"
-      ]
-    },
-    {
-      "id": "17",
-      "categoryId": "new-products",
-      "name": "Xe đạp gấp Mini Fold",
-      "price": 5100000,
-      "image": "images/Mini Fold.webp",
-      "sold": 48,
-      "features": [
-        "Thiết kế nhỏ gọn"
-      ]
-    },
-    {
-      "id": "18",
-      "categoryId": "sports-bikes",
-      "name": "Xe đạp thể thao Power S200",
-      "price": 7000000,
-      "image": "images/Power S200.webp",
-      "sold": 59,
-      "features": [
-        "Xe thể thao tốc độ cao"
-      ]
-    },
-    {
-      "id": "19",
-      "categoryId": "kids-bikes",
-      "name": "Xe đạp trẻ em Kid Bike K2",
-      "price": 2400000,
-      "image": "images/Kid Bike K2.webp",
-      "sold": 132,
-      "features": [
-        "Xe trẻ em có bánh phụ"
-      ]
-    },
-    {
-      "id": "20",
-      "categoryId": "sports-bikes",
-      "name": "Xe đạp MTB Thunder",
-      "price": 6600000,
-      "image": "images/MTB Thunder.webp",
-      "sold": 70,
-      "features": [
-        "Xe leo núi khung hợp kim"
-      ]
-    },
-    {
-      "id": "21",
-      "categoryId": "new-products",
-      "name": "Xe đạp điện E-Bike 100",
-      "price": 12500000,
-      "image": "images/E-Bike 100.webp",
-      "sold": 15,
-      "features": [
-        "Thiết kế hiện đại, trợ lực điện"
-      ]
-    },
-    {
-      "id": "22",
-      "categoryId": "new-products",
-      "name": "Xe đạp đường phố Modern City",
-      "price": 5400000,
-      "image": "images/Modern City.webp",
-      "sold": 80,
-      "features": [
-        "Dành cho di chuyển đô thị"
-      ]
-    },
-    {
-      "id": "23",
-      "categoryId": "new-products",
-      "name": "Xe đạp trượt Scoot",
-      "price": 2300000,
-      "image": "images/Scoot.webp",
-      "sold": 45,
-      "features": [
-        "Gọn nhẹ, tiện đi lại gần"
-      ]
-    },
-    {
-      "id": "24",
-      "categoryId": "new-products",
-      "name": "Xe đạp nữ Vintage",
-      "price": 4900000,
-      "image": "images/Vintage.webp",
-      "sold": 90,
-      "features": [
-        "Phong cách nữ tính, giỏ trước"
-      ]
-    },
-    {
-      "id": "25",
-      "categoryId": "kids-bikes",
-      "name": "Xe đạp trẻ em Kid Bike K3",
-      "price": 2600000,
-      "image": "images/Kid Bike K3.webp",
-      "sold": 110,
-      "features": [
-        "Size 16 inch cho bé 5-8 tuổi"
-      ]
-    },
-    {
-      "id": "26",
-      "categoryId": "kids-bikes",
-      "name": "Xe đạp trẻ em Kid Bike K4",
-      "price": 2800000,
-      "image": "images/Kid Bike K4.webp",
-      "sold": 85,
-      "features": [
-        "Size 20 inch cá tính"
-      ]
-    },
-    {
-      "id": "27",
-      "categoryId": "kids-bikes",
-      "name": "Xe đạp trẻ em Sporty Mini",
-      "price": 3100000,
-      "image": "images/Sporty Mini.webp",
-      "sold": 60,
-      "features": [
-        "Kiểu dáng thể thao khỏe khoắn"
-      ]
-    },
-    {
-      "id": "28",
-      "categoryId": "kids-bikes",
-      "name": "Xe đạp trẻ em Princess",
-      "price": 2700000,
-      "image": "images/Princess.webp",
-      "sold": 140,
-      "features": [
-        "Dành cho bé gái, màu hồng"
-      ]
-    },
-    {
-      "id": "29",
-      "categoryId": "kids-bikes",
-      "name": "Xe đạp trẻ em Hero",
-      "price": 2900000,
-      "image": "images/Hero.webp",
-      "sold": 75,
-      "features": [
-        "Tem siêu anh hùng"
-      ]
-    },
-    {
-      "id": "30",
-      "categoryId": "kids-bikes",
-      "name": "Xe đạp trẻ em Balance Bike",
-      "price": 1200000,
-      "image": "images/Balance Bike.webp",
-      "sold": 200,
-      "features": [
-        "Xe thăng bằng cho bé 2-4 tuổi"
-      ]
-    },
-    {
-      "id": "31",
-      "categoryId": "kids-bikes",
-      "name": "Xe đạp trẻ em BMX Junior",
-      "price": 3500000,
-      "image": "images/BMX Junior.webp",
-      "sold": 40,
-      "features": [
-        "Thích hợp biểu diễn nhẹ"
-      ]
-    },
-    {
-      "id": "32",
-      "categoryId": "kids-bikes",
-      "name": "Xe đạp trẻ em Junior MTB",
-      "price": 3800000,
-      "image": "images/Junior MTB.webp",
-      "sold": 55,
-      "features": [
-        "Phuộc nhún trước, phanh đĩa"
-      ]
-    }
-  ]
-};
+            "categories": [
+                {
+                    "id": "new-products",
+                    "name": "SẢN PHẨM MỚI 2026"
+                },
+                {
+                    "id": "kids-bikes",
+                    "name": "XE ĐẠP TRẺ EM"
+                },
+                {
+                    "id": "sports-bikes",
+                    "name": "XE ĐẠP THỂ THAO"
+                },
+                {
+                    "id": "mountain-bikes",
+                    "name": "XE ĐẠP ĐỊA HÌNH"
+                }
+            ],
+            "products": [
+                {
+                    "id": "1",
+                    "categoryId": "new-products",
+                    "name": "Xe đạp 2026 Mẫu 1",
+                    "price": 5100000,
+                    "image": "images/ảnh xe mới nhất/Vintage.webp",
+                    "sold": 158,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "2",
+                    "categoryId": "new-products",
+                    "name": "Xe đạp 2026 Mẫu 2",
+                    "price": 3100000,
+                    "image": "images/ảnh xe mới nhất/Vintage.webp",
+                    "sold": 64,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "3",
+                    "categoryId": "new-products",
+                    "name": "Xe đạp 2026 Mẫu 3",
+                    "price": 2900000,
+                    "image": "images/ảnh xe mới nhất/city Classic.webp",
+                    "sold": 51,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "4",
+                    "categoryId": "new-products",
+                    "name": "Xe đạp 2026 Mẫu 4",
+                    "price": 6800000,
+                    "image": "images/ảnh xe mới nhất/city Classic.webp",
+                    "sold": 120,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "5",
+                    "categoryId": "new-products",
+                    "name": "Xe đạp 2026 Mẫu 5",
+                    "price": 5300000,
+                    "image": "images/ảnh xe mới nhất/city Classic.webp",
+                    "sold": 53,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "6",
+                    "categoryId": "new-products",
+                    "name": "Xe đạp 2026 Mẫu 6",
+                    "price": 2900000,
+                    "image": "images/ảnh xe mới nhất/touring T500.webp",
+                    "sold": 74,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "7",
+                    "categoryId": "new-products",
+                    "name": "Xe đạp 2026 Mẫu 7",
+                    "price": 6700000,
+                    "image": "images/ảnh xe mới nhất/touring T500.webp",
+                    "sold": 135,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "8",
+                    "categoryId": "new-products",
+                    "name": "Xe đạp 2026 Mẫu 8",
+                    "price": 3200000,
+                    "image": "images/ảnh xe mới nhất/city Classic.webp",
+                    "sold": 109,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "9",
+                    "categoryId": "new-products",
+                    "name": "Xe đạp 2026 Mẫu 9",
+                    "price": 5300000,
+                    "image": "images/ảnh xe mới nhất/city Classic.webp",
+                    "sold": 33,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "10",
+                    "categoryId": "new-products",
+                    "name": "Xe đạp 2026 Mẫu 10",
+                    "price": 3400000,
+                    "image": "images/ảnh xe mới nhất/touring T500.webp",
+                    "sold": 107,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "11",
+                    "categoryId": "kids-bikes",
+                    "name": "Xe đạp trẻ em KidBike Mẫu 1",
+                    "price": 4300000,
+                    "image": "images/ảnh xe trẻ con/Kid Bike K1.webp",
+                    "sold": 161,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "12",
+                    "categoryId": "kids-bikes",
+                    "name": "Xe đạp trẻ em KidBike Mẫu 2",
+                    "price": 3000000,
+                    "image": "images/ảnh xe trẻ con/Kid Bike K2.webp",
+                    "sold": 169,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "13",
+                    "categoryId": "kids-bikes",
+                    "name": "Xe đạp trẻ em KidBike Mẫu 3",
+                    "price": 6200000,
+                    "image": "images/ảnh xe trẻ con/Kid Bike K4.webp",
+                    "sold": 125,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "14",
+                    "categoryId": "kids-bikes",
+                    "name": "Xe đạp trẻ em KidBike Mẫu 4",
+                    "price": 3100000,
+                    "image": "images/ảnh xe trẻ con/Kid Bike K2.webp",
+                    "sold": 182,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "15",
+                    "categoryId": "kids-bikes",
+                    "name": "Xe đạp trẻ em KidBike Mẫu 5",
+                    "price": 3700000,
+                    "image": "images/ảnh xe trẻ con/Sporty Mini.webp",
+                    "sold": 46,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "16",
+                    "categoryId": "kids-bikes",
+                    "name": "Xe đạp trẻ em KidBike Mẫu 6",
+                    "price": 4100000,
+                    "image": "images/ảnh xe trẻ con/Princess.webp",
+                    "sold": 47,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "17",
+                    "categoryId": "kids-bikes",
+                    "name": "Xe đạp trẻ em KidBike Mẫu 7",
+                    "price": 2300000,
+                    "image": "images/ảnh xe trẻ con/hero.webp",
+                    "sold": 116,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "18",
+                    "categoryId": "kids-bikes",
+                    "name": "Xe đạp trẻ em KidBike Mẫu 8",
+                    "price": 5300000,
+                    "image": "images/ảnh xe trẻ con/Balance Bike.webp",
+                    "sold": 181,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "19",
+                    "categoryId": "kids-bikes",
+                    "name": "Xe đạp trẻ em KidBike Mẫu 9",
+                    "price": 2600000,
+                    "image": "images/ảnh xe trẻ con/Princess.webp",
+                    "sold": 23,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "20",
+                    "categoryId": "kids-bikes",
+                    "name": "Xe đạp trẻ em KidBike Mẫu 10",
+                    "price": 6000000,
+                    "image": "images/ảnh xe trẻ con/Princess.webp",
+                    "sold": 14,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "21",
+                    "categoryId": "sports-bikes",
+                    "name": "Xe đạp thể thao RoadBike Mẫu 1",
+                    "price": 6100000,
+                    "image": "images/ảnh xe thể thao/Speed S100.webp",
+                    "sold": 80,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "22",
+                    "categoryId": "sports-bikes",
+                    "name": "Xe đạp thể thao RoadBike Mẫu 2",
+                    "price": 6200000,
+                    "image": "images/ảnh xe thể thao/Fixed Urban.webp",
+                    "sold": 44,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "23",
+                    "categoryId": "sports-bikes",
+                    "name": "Xe đạp thể thao RoadBike Mẫu 3",
+                    "price": 2100000,
+                    "image": "images/ảnh xe thể thao/touring Adventure.webp",
+                    "sold": 205,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "24",
+                    "categoryId": "sports-bikes",
+                    "name": "Xe đạp thể thao RoadBike Mẫu 4",
+                    "price": 4600000,
+                    "image": "images/ảnh xe thể thao/MTB Trail.webp",
+                    "sold": 42,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "25",
+                    "categoryId": "sports-bikes",
+                    "name": "Xe đạp thể thao RoadBike Mẫu 5",
+                    "price": 3000000,
+                    "image": "images/ảnh xe thể thao/Folding Bike F1.webp",
+                    "sold": 24,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "26",
+                    "categoryId": "sports-bikes",
+                    "name": "Xe đạp thể thao RoadBike Mẫu 6",
+                    "price": 6400000,
+                    "image": "images/ảnh xe thể thao/MTB Thunder.webp",
+                    "sold": 161,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "27",
+                    "categoryId": "sports-bikes",
+                    "name": "Xe đạp thể thao RoadBike Mẫu 7",
+                    "price": 3800000,
+                    "image": "images/ảnh xe thể thao/touring Adventure.webp",
+                    "sold": 105,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "28",
+                    "categoryId": "sports-bikes",
+                    "name": "Xe đạp thể thao RoadBike Mẫu 8",
+                    "price": 6300000,
+                    "image": "images/ảnh xe thể thao/BMX Junior.webp",
+                    "sold": 74,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "29",
+                    "categoryId": "sports-bikes",
+                    "name": "Xe đạp thể thao RoadBike Mẫu 9",
+                    "price": 6400000,
+                    "image": "images/ảnh xe thể thao/E-Bike 100.webp",
+                    "sold": 97,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "30",
+                    "categoryId": "sports-bikes",
+                    "name": "Xe đạp thể thao RoadBike Mẫu 10",
+                    "price": 3100000,
+                    "image": "images/ảnh xe thể thao/MTB Thunder.webp",
+                    "sold": 116,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "31",
+                    "categoryId": "mountain-bikes",
+                    "name": "Xe đạp địa hình MTB Mẫu 1",
+                    "price": 3300000,
+                    "image": "images/ảnh xe thể thao/MTB Hunter.webp",
+                    "sold": 69,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "32",
+                    "categoryId": "mountain-bikes",
+                    "name": "Xe đạp địa hình MTB Mẫu 2",
+                    "price": 4400000,
+                    "image": "images/ảnh xe thể thao/MTB Trail.webp",
+                    "sold": 115,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "33",
+                    "categoryId": "mountain-bikes",
+                    "name": "Xe đạp địa hình MTB Mẫu 3",
+                    "price": 2400000,
+                    "image": "images/ảnh xe thể thao/MTB Trail.webp",
+                    "sold": 192,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "34",
+                    "categoryId": "mountain-bikes",
+                    "name": "Xe đạp địa hình MTB Mẫu 4",
+                    "price": 3300000,
+                    "image": "images/ảnh xe thể thao/MTB Thunder.webp",
+                    "sold": 57,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "35",
+                    "categoryId": "mountain-bikes",
+                    "name": "Xe đạp địa hình MTB Mẫu 5",
+                    "price": 3800000,
+                    "image": "images/ảnh xe thể thao/MTB Hunter.webp",
+                    "sold": 33,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "36",
+                    "categoryId": "mountain-bikes",
+                    "name": "Xe đạp địa hình MTB Mẫu 6",
+                    "price": 6800000,
+                    "image": "images/ảnh xe thể thao/MTB Thunder.webp",
+                    "sold": 169,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "37",
+                    "categoryId": "mountain-bikes",
+                    "name": "Xe đạp địa hình MTB Mẫu 7",
+                    "price": 4600000,
+                    "image": "images/ảnh xe thể thao/MTB Hunter.webp",
+                    "sold": 54,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "38",
+                    "categoryId": "mountain-bikes",
+                    "name": "Xe đạp địa hình MTB Mẫu 8",
+                    "price": 2900000,
+                    "image": "images/ảnh xe thể thao/MTB Trail.webp",
+                    "sold": 116,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "39",
+                    "categoryId": "mountain-bikes",
+                    "name": "Xe đạp địa hình MTB Mẫu 9",
+                    "price": 4600000,
+                    "image": "images/ảnh xe thể thao/MTB Trail.webp",
+                    "sold": 206,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                },
+                {
+                    "id": "40",
+                    "categoryId": "mountain-bikes",
+                    "name": "Xe đạp địa hình MTB Mẫu 10",
+                    "price": 6700000,
+                    "image": "images/ảnh xe thể thao/MTB Hunter.webp",
+                    "sold": 82,
+                    "features": [
+                        "Khung xe chắc chắn",
+                        "Bộ truyền động mượt mà"
+                    ]
+                }
+            ]
+        };
         allProducts = data.products || []; // Dùng trực tiếp dữ liệu tĩnh
 
         const categories = data.categories || [];
@@ -432,7 +564,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 let bgImage = 'https://images.unsplash.com/photo-1532298229144-0ec0c57515c7';
                 if (cat.id === 'sports-bikes') bgImage = 'https://images.unsplash.com/photo-1544181057-7977a4143a57';
                 else if (cat.id === 'kids-bikes') bgImage = 'https://images.unsplash.com/photo-1557257321-72f87ee8d462';
-                
+
                 return `
                 <a href="#${cat.id}" class="cat-card" style="text-decoration:none;">
                     <div class="cat-bg" style="background-image: url('${bgImage}')"></div>
@@ -461,7 +593,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     <p style="color: var(--cyan); margin-top: 5px;">${window.t_feat ? window.t_feat('Những mẫu xe nổi bật nhất chuyên mục') : 'Những mẫu xe nổi bật nhất chuyên mục'}</p>
                 </div>
                 <div class="products-grid">
-                    ${catProducts.slice(0, 6).map(buildCard).join('')}
+                    ${catProducts.map(buildCard).join('')}
                 </div>`;
             fragment.appendChild(section);
         });
@@ -489,10 +621,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     function buildCard(p) {
         const randomRating = (4.5 + Math.random() * 0.4).toFixed(1);
         const randomReviews = Math.floor(Math.random() * 300) + 50;
-        
+
         const badge = p.discount ? `<div class="badge-hot">-${p.discount}%</div>` : '';
         const isHot = p.sold > 60 ? `<div class="badge-seller"><i class="ph-fill ph-star"></i> BEST SELLER</div>` : '';
-        
+
         const oldPrice = p.originalPrice
             ? `<span class="product-price-old">${fmt(p.originalPrice)}</span>`
             : `<span class="product-price-old" style="visibility:hidden">0₫</span>`;
@@ -523,7 +655,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     </div>
                     <ul class="product-features">
                         ${features}
-                        <li>Trọng lượng: ${Math.floor(Math.random()*5 + 7)}.${Math.floor(Math.random()*9)} kg</li>
+                        <li>Trọng lượng: ${Math.floor(Math.random() * 5 + 7)}.${Math.floor(Math.random() * 9)} kg</li>
                     </ul>
                     <div class="product-actions">
                         <button class="btn-details">Chi Tiết</button>
@@ -591,7 +723,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (!card) return;
 
             const id = card.dataset.id;
-            const p = allProducts.find(x => x.id === id); 
+            const p = allProducts.find(x => x.id === id);
 
             if (p) {
                 if (btnCart) {
@@ -802,15 +934,15 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
             const ph = phoneInp ? phoneInp.value.trim() : '';
             if (!ph) { alert('Vui lòng nhập số điện thoại.'); return; }
-            
-            const newUser = { 
+
+            const newUser = {
                 id: 'local_' + Date.now(),
-                username: u, 
-                password: p, 
+                username: u,
+                password: p,
                 phone: ph,
                 provider: 'local',
                 socialId: null,
-                name: u 
+                name: u
             };
             usersDb.push(newUser);
             localStorage.setItem('sdb_users', JSON.stringify(usersDb));
@@ -867,7 +999,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         currentUser = foundUser;
         localStorage.setItem('sdb_user', JSON.stringify(foundUser));
-        
+
         authModal.classList.remove('active');
         updateAuthHeader();
         const d = i18nConfig[currentLang];
@@ -912,8 +1044,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Ẩn sau 2 giây
         setTimeout(() => {
             toast.classList.remove('show');
-            setTimeout(() => toast.remove(), 400); 
-        }, 2000); 
+            setTimeout(() => toast.remove(), 400);
+        }, 2000);
     }
 
 
@@ -970,20 +1102,20 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!text) return;
         addMsg(text, 'user');
         chatInput.value = '';
-        
+
         // Hiển thị trạng thái đang gõ
         const typingMsg = addMsg('', 'typing');
 
         setTimeout(() => {
             // Xóa trạng thái đang gõ
             typingMsg.remove();
-            
+
             // Trả lời theo ngữ cảnh cơ bản
             const lowerText = text.toLowerCase();
             const d = (typeof i18nConfig !== 'undefined' ? i18nConfig[currentLang] : null) || {};
             const replies = botReplies();
             let reply = replies[replyIdx++ % replies.length];
-            
+
             if (lowerText.includes('giá') || lowerText.includes('tiền') || lowerText.includes('price')) {
                 reply = "Dạ, các mẫu xe bên em có giá dao động từ 4 đến 10 triệu đồng tùy dòng ạ. Anh/chị đang quan tâm dòng xe nào?";
             } else if (lowerText.includes('mua') || lowerText.includes('đặt') || lowerText.includes('buy')) {
@@ -1111,7 +1243,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 setTimeout(() => searchInput.focus(), 50);
             }
         });
-        
+
         document.addEventListener('click', e => {
             if (!searchBtnTrigger.contains(e.target) && !searchDropdown.contains(e.target)) {
                 searchDropdown.style.display = 'none';
@@ -1158,30 +1290,30 @@ document.addEventListener('DOMContentLoaded', async () => {
     logoImg.src = "logo.png";
     logoImg.onload = () => {
         document.querySelectorAll('.logo-canvas').forEach(canvas => {
-            const ctx = canvas.getContext('2d', {willReadFrequently: true});
+            const ctx = canvas.getContext('2d', { willReadFrequently: true });
             const hRatio = canvas.width / logoImg.width;
             const vRatio = canvas.height / logoImg.height;
-            const ratio  = Math.min(hRatio, vRatio);
+            const ratio = Math.min(hRatio, vRatio);
             const w = logoImg.width * ratio;
             const h = logoImg.height * ratio;
             const x = (canvas.width - w) / 2;
-            const y = (canvas.height - h) / 2;  
-            
+            const y = (canvas.height - h) / 2;
+
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.drawImage(logoImg, 0, 0, logoImg.width, logoImg.height, x, y, w, h);
-            
+
             const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
             const data = imageData.data;
-            for(let i = 0; i < data.length; i += 4) {
-                if (data[i+3] === 0) continue;
+            for (let i = 0; i < data.length; i += 4) {
+                if (data[i + 3] === 0) continue;
                 // Calculate luma to determine if it's white background or dark text
-                const luma = data[i]*0.299 + data[i+1]*0.587 + data[i+2]*0.114;
+                const luma = data[i] * 0.299 + data[i + 1] * 0.587 + data[i + 2] * 0.114;
                 const alpha = 255 - luma; // White luma 255 -> alpha 0
-                
-                data[i] = 255; 
-                data[i+1] = 255; 
-                data[i+2] = 255;
-                data[i+3] = Math.min(255, alpha * 1.5);
+
+                data[i] = 255;
+                data[i + 1] = 255;
+                data[i + 2] = 255;
+                data[i + 3] = Math.min(255, alpha * 1.5);
             }
             ctx.putImageData(imageData, 0, 0);
         });
